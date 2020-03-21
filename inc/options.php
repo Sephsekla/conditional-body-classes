@@ -43,7 +43,7 @@ function settings_page()
     ?>
     <div class="wrap">
     <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
-    <form action="options-general.php" method="post">
+    <form action="options.php" method="post">
         <?php
         // output security fields for the registered setting "cbc"
         settings_fields('cbc');
@@ -62,6 +62,25 @@ function create_settings_section()
 {
 
     register_setting('cbc_classes', 'cbc');
+
+     // register a new field in the "wporg_settings_section" section, inside the "reading" page
+     add_settings_field(
+        'wporg_settings_field',
+        'WPOrg Setting',
+        __NAMESPACE__.'\wporg_settings_field_cb',
+        'cbc',
+        'cbc_section'
+    );
+
+    function wporg_settings_field_cb()
+{
+    // get the value of the setting we've registered with register_setting()
+    $setting = get_option('wporg_setting_name');
+    // output the field
+    ?>
+    <input type="text" name="wporg_setting_name" value="<?php echo isset( $setting ) ? esc_attr( $setting ) : ''; ?>">
+    <?php
+}
 
 
 
