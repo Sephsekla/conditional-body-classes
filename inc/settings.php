@@ -26,14 +26,28 @@ function settings_init()
     
     // register a new field in the "cbc_section_developers" section, inside the "cbc" page
     add_settings_field(
-        'cbc_field_pill', // as of WP 4.6 this value is used only internally
+        'cbc_field_classes', // as of WP 4.6 this value is used only internally
         // use $args' label_for to populate the id inside the callback
-        __('Pill', 'cbc'),
-        __NAMESPACE__.'\cbc_field_pill_cb',
+        __('Classes', 'cbc'),
+        __NAMESPACE__.'\cbc_field_classes_cb',
         'cbc',
         'cbc_section_classes',
         [
-        'label_for' => 'cbc_field_pill',
+        'label_for' => 'cbc_field_classes',
+        'class' => 'cbc_row',
+        'cbc_custom_data' => 'custom',
+        ]
+    );
+
+    add_settings_field(
+        'cbc_field_permissions', // as of WP 4.6 this value is used only internally
+        // use $args' label_for to populate the id inside the callback
+        __('Permissions', 'cbc'),
+        __NAMESPACE__.'\cbc_field_classes_cb',
+        'cbc',
+        'cbc_section_permissions',
+        [
+        'label_for' => 'cbc_field_permissions',
         'class' => 'cbc_row',
         'cbc_custom_data' => 'custom',
         ]
@@ -45,7 +59,7 @@ function cbc_section_classes_cb()
     echo 'SECTION CALLBACk';
 }
 
-function cbc_field_pill_cb()
+function cbc_field_classes_cb()
 {
     echo 'FIELD CALLBACk';
 }
