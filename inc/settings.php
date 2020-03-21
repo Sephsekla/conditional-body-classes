@@ -2,35 +2,46 @@
 
 use cbc_options as options;
 
- function wporg_settings_init() {
-    // register a new setting for "wporg" page
-    register_setting( 'wporg', 'wporg_options' );
+function settings_init()
+{
+    // register a new setting for "cbc" page
+    register_setting('cbc', 'cbc_options');
     
-    // register a new section in the "wporg" page
+    // register a new section in the "cbc" page
     add_settings_section(
-    'wporg_section_developers',
-    __( 'The Matrix has you.', 'wporg' ),
-    __NAMESPACE__.'\wporg_section_developers_cb',
-    'wporg'
+        'cbc_section_developers',
+        __('The Matrix has you.', 'cbc'),
+        __NAMESPACE__.'\cbc_section_developers_cb',
+        'cbc'
     );
     
-    // register a new field in the "wporg_section_developers" section, inside the "wporg" page
+    // register a new field in the "cbc_section_developers" section, inside the "cbc" page
     add_settings_field(
-    'wporg_field_pill', // as of WP 4.6 this value is used only internally
-    // use $args' label_for to populate the id inside the callback
-    __( 'Pill', 'wporg' ),
-    'wporg_field_pill_cb',
-    'wporg',
-    'wporg_section_developers',
-    [
-    'label_for' => 'wporg_field_pill',
-    'class' => 'wporg_row',
-    'wporg_custom_data' => 'custom',
-    ]
+        'cbc_field_pill', // as of WP 4.6 this value is used only internally
+        // use $args' label_for to populate the id inside the callback
+        __('Pill', 'cbc'),
+        __NAMESPACE__.'\cbc_field_pill_cb',
+        'cbc',
+        'cbc_section_developers',
+        [
+        'label_for' => 'cbc_field_pill',
+        'class' => 'cbc_row',
+        'cbc_custom_data' => 'custom',
+        ]
     );
-   }
+}
+
+function cbc_section_developers_cb()
+{
+    echo 'SECTION CALLBACk';
+}
+
+function cbc_field_pill_cb()
+{
+    echo 'FIELD CALLBACk';
+}
     
    /**
-    * register our wporg_settings_init to the admin_init action hook
+    * register our cbc_settings_init to the admin_init action hook
     */
-   add_action( 'admin_init', __NAMESPACE__.'\wporg_settings_init' );
+   add_action('admin_init', __NAMESPACE__.'\settings_init');
