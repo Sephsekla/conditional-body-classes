@@ -75,6 +75,8 @@ class options_page
     function create_settings_section()
     {
 
+        register_setting( 'cbc_classes', 'cbc' );
+
 
         add_settings_section(
             'cbc_section',
@@ -88,6 +90,7 @@ class options_page
     {
         echo  __('Intro', 'cbc');
     }
+
  
 }
  
