@@ -94,7 +94,7 @@ function wporg_field_pill_cb( $args ) {
  */
 function wporg_options_page() {
  // add top level menu page
- add_menu_page(
+ add_options_page(
  'WPOrg',
  'WPOrg Options',
  'manage_options',
