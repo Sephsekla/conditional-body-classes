@@ -40,7 +40,7 @@ define( 'CBC_PLUGIN_PATH', plugin_dir_path(__FILE__) );
  */
 if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
 	require_once CBC_PLUGIN_PATH.'/inc/options.php';
-	require_once CBC_PLUGIN_PATH.'/reference.php';
+	require_once CBC_PLUGIN_PATH.'/inc/settings.php';
 }else {
 	require_once CBC_PLUGIN_PATH.'/inc/php-version.php';
 }
