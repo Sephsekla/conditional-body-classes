@@ -3,7 +3,7 @@
 	Plugin Name: Conditional Body Class
 	Plugin URI: https://joebr.io
 	Description: Add body classes based on conditional factors on your site
-	Version: 0.1.0
+	Version: 0.2.0
 	Author: JBR Digital
 	Author URI: https://www.never5.com
 	Requires at least: 5.3.0

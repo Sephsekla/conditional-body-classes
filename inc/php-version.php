@@ -4,7 +4,6 @@
  *
  * Displays an error message when the minimum php version is not met.
  *
- * @link URL
  *
  * @package cbc
  * @since 0.1.0
