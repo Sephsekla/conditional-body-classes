@@ -15,6 +15,6 @@ function cbc_php_requirement_notice() {
     $class = 'notice notice-error';
     $message = __( 'Conditional Body Class requires a minimum PHP version of 5.3. For more information visit <a href="https://wordpress.org/support/update-php/" target="_blank">WordPress Support</a>', 'cbc' );
  
-    printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
+    printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message ); 
 }
 add_action( 'admin_notices', 'cbc_php_requirement_notice' );
