@@ -9,11 +9,20 @@ function settings_init()
     
     // register a new section in the "cbc" page
     add_settings_section(
-        'cbc_section_developers',
-        __('The Matrix has you.', 'cbc'),
-        __NAMESPACE__.'\cbc_section_developers_cb',
+        'cbc_section_classes',
+        __('Body Classes.', 'cbc'),
+        __NAMESPACE__.'\cbc_section_classes_cb',
         'cbc'
     );
+
+    add_settings_section(
+        'cbc_section_permissions',
+        __('Permissions', 'cbc'),
+        __NAMESPACE__.'\cbc_section_classes_cb',
+        'cbc'
+    );
+
+
     
     // register a new field in the "cbc_section_developers" section, inside the "cbc" page
     add_settings_field(
@@ -22,7 +31,7 @@ function settings_init()
         __('Pill', 'cbc'),
         __NAMESPACE__.'\cbc_field_pill_cb',
         'cbc',
-        'cbc_section_developers',
+        'cbc_section_classes',
         [
         'label_for' => 'cbc_field_pill',
         'class' => 'cbc_row',
@@ -31,7 +40,7 @@ function settings_init()
     );
 }
 
-function cbc_section_developers_cb()
+function cbc_section_classes_cb()
 {
     echo 'SECTION CALLBACk';
 }

@@ -20,7 +20,7 @@ function options_page()
         'Conditional Body Classes',
         'Body Classes',
         'manage_options',
-        'wporg',
+        'cbc',
         __NAMESPACE__.'\options_page_html'
     );
 }
