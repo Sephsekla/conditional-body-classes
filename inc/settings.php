@@ -66,22 +66,20 @@ function cbc_field_classes_cb($args)
 
 function cbc_field_permissions_cb($args){
     $options = get_option( 'cbc_options' );
+
+    print_r($options);
+
 // output the field
 ?>
-<select id="<?php echo esc_attr( $args['label_for'] ); ?>"
-data-custom="<?php echo esc_attr( $args['cbc_custom_data'] ); ?>"
-name="cbc_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
->
-<option value="red" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'red', false ) ) : ( '' ); ?>>
-<?php esc_html_e( 'red pill', 'cbc' ); ?>
-</option>
-<option value="blue" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'blue', false ) ) : ( '' ); ?>>
-<?php esc_html_e( 'blue pill', 'cbc' ); ?>
-</option>
-</select>
+
+
+<fieldset id="<?php echo esc_attr( $args['label_for'] ); ?>" data-custom="<?php echo esc_attr( $args['cbc_custom_data'] ); ?>">      
 <p class="description">
 <?php esc_html_e( 'Select which roles can access Conditional Body Classes', 'cbc' ); ?>
-</p>
+</p>   
+        <input type="checkbox" name="cbc_options[<?php echo esc_attr( $args['label_for'] ); ?>][]" value="blue" <?php echo isset( $options[ $args['label_for'] ] ) ? ( checked( in_array('blue',$options[ $args['label_for'] ]), true, false ) ) : ( '' ); ?>>Blue<br>      
+        <input type="checkbox" name="cbc_options[<?php echo esc_attr( $args['label_for'] ); ?>][]" value="red" <?php echo isset( $options[ $args['label_for'] ] ) ? ( checked( in_array('red',$options[ $args['label_for'] ]), true, false ) ) : ( '' ); ?>>Red<br>         
+    </fieldset>      
 <?php
 }
     
