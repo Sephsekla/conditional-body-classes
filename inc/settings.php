@@ -43,7 +43,7 @@ function settings_init()
         'cbc_field_permissions', // as of WP 4.6 this value is used only internally
         // use $args' label_for to populate the id inside the callback
         __('Permissions', 'cbc'),
-        __NAMESPACE__.'\cbc_field_classes_cb',
+        __NAMESPACE__.'\cbc_field_permissions_cb',
         'cbc',
         'cbc_section_permissions',
         [
@@ -59,9 +59,30 @@ function cbc_section_classes_cb()
     echo 'SECTION CALLBACk';
 }
 
-function cbc_field_classes_cb()
+function cbc_field_classes_cb($args)
 {
-    echo 'FIELD CALLBACk';
+     echo "CLASSEs";
+}
+
+function cbc_field_permissions_cb($args){
+    $options = get_option( 'cbc_options' );
+// output the field
+?>
+<select id="<?php echo esc_attr( $args['label_for'] ); ?>"
+data-custom="<?php echo esc_attr( $args['cbc_custom_data'] ); ?>"
+name="cbc_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
+>
+<option value="red" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'red', false ) ) : ( '' ); ?>>
+<?php esc_html_e( 'red pill', 'cbc' ); ?>
+</option>
+<option value="blue" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'blue', false ) ) : ( '' ); ?>>
+<?php esc_html_e( 'blue pill', 'cbc' ); ?>
+</option>
+</select>
+<p class="description">
+<?php esc_html_e( 'Select which roles can access Conditional Body Classes', 'cbc' ); ?>
+</p>
+<?php
 }
     
    /**
