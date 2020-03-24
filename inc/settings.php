@@ -1,6 +1,7 @@
 <?php
 
-use cbc_options as options;
+use cbc\options as options;
+use cbc\helpers as helpers;
 
 function settings_init()
 {
@@ -64,23 +65,40 @@ function cbc_field_classes_cb($args)
      echo "CLASSEs";
 }
 
-function cbc_field_permissions_cb($args){
-    $options = get_option( 'cbc_options' );
+function cbc_field_permissions_cb($args)
+{
+    $options = get_option('cbc_options');
 
     print_r($options);
 
-// output the field
-?>
+    $roles = helpers\get_all_roles();
+
+    echo '<pre>';
+
+    print_r($roles);
+
+    echo '</pre>';
+
+    // output the field
+    ?>
 
 
-<fieldset id="<?php echo esc_attr( $args['label_for'] ); ?>" data-custom="<?php echo esc_attr( $args['cbc_custom_data'] ); ?>">      
+<fieldset id="<?php echo esc_attr($args['label_for']); ?>" data-custom="<?php echo esc_attr($args['cbc_custom_data']); ?>">      
 <p class="description">
-<?php esc_html_e( 'Select which roles can access Conditional Body Classes', 'cbc' ); ?>
+    <?php esc_html_e('Select which roles can access Conditional Body Classes', 'cbc'); ?>
 </p>   
-        <input type="checkbox" name="cbc_options[<?php echo esc_attr( $args['label_for'] ); ?>][]" value="blue" <?php echo isset( $options[ $args['label_for'] ] ) ? ( checked( in_array('blue',$options[ $args['label_for'] ]), true, false ) ) : ( '' ); ?>>Blue<br>      
-        <input type="checkbox" name="cbc_options[<?php echo esc_attr( $args['label_for'] ); ?>][]" value="red" <?php echo isset( $options[ $args['label_for'] ] ) ? ( checked( in_array('red',$options[ $args['label_for'] ]), true, false ) ) : ( '' ); ?>>Red<br>         
+
+    <?php foreach($roles as $role){
+        ?>
+
+<input type="checkbox" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $role['name'] ?>" <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($role['name'], $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br> 
+
+        <?php
+
+    }
+    ?>   
     </fieldset>      
-<?php
+    <?php
 }
     
    /**
