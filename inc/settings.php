@@ -69,23 +69,35 @@ function cbc_section_classes_cb()
 
 function cbc_field_classes_cb($args)
 {
-     echo "CLASSEs";
+    $options = get_option('cbc_options');
+
+    echo '<pre>';
+    print_r($options);
+    echo '</pre>';
+
+    $roles = helpers\get_all_roles();
+
+    // output the field
+    ?>
+
+
+<fieldset id="<?php echo esc_attr($args['label_for']); ?>" data-custom="<?php echo esc_attr($args['cbc_custom_data']); ?>">      
+<p class="description">
+    <?php esc_html_e('Lorem ipsum here\s a description', 'cbc'); ?>
+</p>   
+
+<input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]['classes']" value="<?php echo 'test' ?>"><br> 
+
+    </fieldset>      
+    <?php
 }
 
 function cbc_field_permissions_cb($args)
 {
     $options = get_option('cbc_options');
 
-    print_r($options);
 
     $roles = helpers\get_all_roles();
-
-    echo '<pre>';
-
-    print_r($roles);
-
-    echo '</pre>';
-
   
 
     // output the field
@@ -98,11 +110,32 @@ function cbc_field_permissions_cb($args)
 </p>   
 
     <?php foreach($roles as $key=>$role){
-        ?>
+
+
+if ('administrator' === $key){
+
+    ?>
+
+<input type="checkbox" disabled name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>" <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($key, $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br> 
+
+    <input type="hidden" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>"> 
+
+    <?php
+
+}
+
+else{
+
+    ?>
+
 
 <input type="checkbox" <?php echo ('administrator' === $key) ? 'disabled' : '' ?> name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>" <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($key, $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br> 
 
-        <?php
+
+
+<?php
+
+}
 
     }
     ?>   
@@ -125,6 +158,7 @@ function cbc_field_permissions_cb($args)
         add_settings_error('cbc_messages', 'cbc_message', __('Warning, administrator needs access otherwise you\'ll be locked out!', 'cbc'), 'error');
 
         $value['cbc_field_permissions'][] ='administrator';
+
     }
 
 
