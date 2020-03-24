@@ -19,7 +19,7 @@ function options_page()
     add_options_page(
         'Conditional Body Classes',
         'Body Classes',
-        'manage_options',
+        'cbc_edit',
         'cbc',
         __NAMESPACE__.'\options_page_html'
     );
