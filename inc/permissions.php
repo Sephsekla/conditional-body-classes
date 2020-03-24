@@ -26,7 +26,7 @@ function update_role_permissions($old_value, $value, $option)
 
         $wp_roles->remove_cap($key, 'cbc_edit'); // Remove capability from role
 
-        if($roles_set && in_array($role['name'], $value['cbc_field_permissions'])) { 
+        if($roles_set && in_array($key, $value['cbc_field_permissions'])) { 
             $wp_roles->add_cap($key, 'cbc_edit'); // Add capability to the role if it's in the new array
         }
 

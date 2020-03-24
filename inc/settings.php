@@ -92,10 +92,10 @@ function cbc_field_permissions_cb($args)
     <?php esc_html_e('Select which roles can access Conditional Body Classes', 'cbc'); ?>
 </p>   
 
-    <?php foreach($roles as $role){
+    <?php foreach($roles as $key=>$role){
         ?>
 
-<input type="checkbox" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $role['name'] ?>" <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($role['name'], $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br> 
+<input type="checkbox" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>" <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($key, $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br> 
 
         <?php
 
