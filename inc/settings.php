@@ -6,7 +6,9 @@ use cbc\helpers as helpers;
 function settings_init()
 {
     // register a new setting for "cbc" page
-    register_setting('cbc', 'cbc_options');
+    register_setting('cbc', 'cbc_options', [
+        'sanitize_callback' => __NAMESPACE__.'\sanitize_cbc'
+    ]);
     
     // register a new section in the "cbc" page
     add_settings_section(
@@ -79,6 +81,8 @@ function cbc_field_permissions_cb($args)
 
     echo '</pre>';
 
+  
+
     // output the field
     ?>
 
@@ -105,3 +109,15 @@ function cbc_field_permissions_cb($args)
     * register our cbc_settings_init to the admin_init action hook
     */
    add_action('admin_init', __NAMESPACE__.'\settings_init');
+
+
+   function sanitize_cbc($value){
+
+    $value[] = 'test';
+
+    add_settings_error('cbc_messages', 'cbc_message', __('Warning, something', 'cbc'), 'error');
+
+
+
+    return $value;
+   }
