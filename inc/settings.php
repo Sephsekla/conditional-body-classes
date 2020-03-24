@@ -7,7 +7,12 @@ function settings_init()
 {
     // register a new setting for "cbc" page
     register_setting('cbc', 'cbc_options', [
-        'sanitize_callback' => __NAMESPACE__.'\sanitize_cbc'
+        'sanitize_callback' => __NAMESPACE__.'\sanitize_cbc',
+        'default' => [
+            'cbc_field_permissions' => [
+                'administrator'
+            ]
+        ]
     ]);
     
     // register a new section in the "cbc" page
@@ -95,7 +100,7 @@ function cbc_field_permissions_cb($args)
     <?php foreach($roles as $key=>$role){
         ?>
 
-<input type="checkbox" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>" <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($key, $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br> 
+<input type="checkbox" <?php echo ('administrator' === $key) ? 'disabled' : '' ?> name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>" <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($key, $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br> 
 
         <?php
 
@@ -113,9 +118,14 @@ function cbc_field_permissions_cb($args)
 
    function sanitize_cbc($value){
 
-    $value[] = 'test';
+  // $value[] = 'sanitized';
 
-    add_settings_error('cbc_messages', 'cbc_message', __('Warning, something', 'cbc'), 'error');
+
+    if(!in_array('administrator',$value['cbc_field_permissions'])){
+        add_settings_error('cbc_messages', 'cbc_message', __('Warning, administrator needs access otherwise you\'ll be locked out!', 'cbc'), 'error');
+
+        $value['cbc_field_permissions'][] ='administrator';
+    }
 
 
 
