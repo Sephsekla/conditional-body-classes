@@ -20,15 +20,14 @@ function update_role_permissions($old_value, $value, $option)
 
     $roles = helpers\get_all_roles();
 
-    $roles_set = is_array($value['cbc_field_permissions']);
+    $roles_set = is_array($value['cbc_field_permissions']); // Check we have some roles set
      
     foreach($roles as $key=>$role){
 
-        $wp_roles->remove_cap($key, 'cbc_edit');
+        $wp_roles->remove_cap($key, 'cbc_edit'); // Remove capability from role
 
-        if($roles_set && in_array($role['name'], $value['cbc_field_permissions'])) {
-            $wp_roles->add_cap($key, 'cbc_edit');
-
+        if($roles_set && in_array($role['name'], $value['cbc_field_permissions'])) { 
+            $wp_roles->add_cap($key, 'cbc_edit'); // Add capability to the role if it's in the new array
         }
 
 
