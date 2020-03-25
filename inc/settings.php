@@ -78,10 +78,6 @@ function cbc_field_classes_cb($args)
     echo '<pre>';
     print_r($options);
     echo '</pre>';
-
-    print_r($classes[0]['classes']);
-
-    print_r(array_column($classes,'classes'));
     // output the field
     ?>
 
@@ -89,13 +85,45 @@ function cbc_field_classes_cb($args)
 <fieldset id="<?php echo esc_attr($args['label_for']); ?>" data-custom="<?php echo esc_attr($args['cbc_custom_data']); ?>">      
 <p class="description">
     <?php esc_html_e('Lorem ipsum here\s a description', 'cbc'); ?>
-</p>   
+</p> 
 
-<input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][0][classes]" value="<?php echo $classes[0]['classes']?>">
-<input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][0][conditions]" value="<?php echo $classes[0]['conditions'] ?>">
+<?php
+
+$i = -1;
+
+$operators = [
+    ['Page', 'page'],
+    ['Post Type', 'post_type'],
+
+];
+
+do{
+
+    ?>
+
+<input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][classes]" value="<?php echo $classes[$i]['classes']?>">
+<select name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][operator]">
+    <option disabled>Please select...</option>
+    <option>Lorem</option>
+
+
+
+
+    <option value="test" <?php echo selected('test' === $options[ $args['label_for'] ][$i]['operator'], true, false); ?>>Test Option</option>
+</select>
+<input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][conditions]" value="<?php echo $classes[$i]['conditions'] ?>">
 
 
 <br> 
+
+<?php
+
+$i++;
+
+}
+while($i < count($classes));
+
+?>
 
     </fieldset>      
     <?php
