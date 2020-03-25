@@ -78,6 +78,7 @@ function cbc_field_classes_cb($args)
         'name' => "cbc_options[".esc_attr($args['label_for'])."][".$i."][conditions]",
         'id' => 'cbc-pages-'.$i,
         'selected' => $classes[$i]['conditions'],
+        'class' => 'cbc-pages'
     ]);
     
     $types = get_post_types([
@@ -85,7 +86,7 @@ function cbc_field_classes_cb($args)
     ],'objects'); 
     
     ?>
-    <select name= "cbc_options[<?php echo esc_attr($args['label_for'])?>][<?php echo $i ?>][conditions]" id="cbc-post-types-<?php echo $i?>">
+    <select name= "cbc_options[<?php echo esc_attr($args['label_for'])?>][<?php echo $i ?>][conditions]" id="cbc-post-types-<?php echo $i?>" class="cbc-types">
 
     <?php 
     
