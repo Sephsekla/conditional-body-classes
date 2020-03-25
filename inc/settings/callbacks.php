@@ -33,8 +33,7 @@ function cbc_field_classes_cb($args)
     ?>
 
 
-<fieldset id="<?php echo esc_attr($args['label_for']); ?>"
-    data-custom="<?php echo esc_attr($args['cbc_custom_data']); ?>">
+
     <p class="description">
         <?php esc_html_e('Lorem ipsum here\s a description', 'cbc'); ?>
     </p>
@@ -49,9 +48,15 @@ function cbc_field_classes_cb($args)
 
     ];
 
+    $types = get_post_types([
+        'public' => true
+    ],'objects'); 
+
     do{
 
         ?>
+
+<fieldset id="<?php echo esc_attr($args['label_for']).'-'.$i; ?>" class="cbc-set" data-custom="<?php echo esc_attr($args['cbc_custom_data']); ?>">
 
     <input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][classes]"
         value="<?php echo $classes[$i]['classes']?>">
@@ -74,29 +79,40 @@ function cbc_field_classes_cb($args)
         value="<?php echo $classes[$i]['conditions'] ?>"> -->
 
 
-    <?php wp_dropdown_pages([
-        'name' => "cbc_options[".esc_attr($args['label_for'])."][".$i."][conditions]",
-        'id' => 'cbc-pages-'.$i,
-        'selected' => $classes[$i]['conditions'],
-        'class' => 'cbc-pages'
-    ]);
-    
-    $types = get_post_types([
-        'public' => true
-    ],'objects'); 
-    
-    ?>
-    <select name= "cbc_options[<?php echo esc_attr($args['label_for'])?>][<?php echo $i ?>][conditions]" id="cbc-post-types-<?php echo $i?>" class="cbc-types">
 
     <?php 
     
-        foreach($types as $type){
-            echo '<option>'.$type->name.'</option>';
-        }
+    switch($options[ $args['label_for'] ][$i]['operator']){
+        case 'page':
+            wp_dropdown_pages([
+                'name' => "cbc_options[".esc_attr($args['label_for'])."][".$i."][conditions]",
+                'id' => 'cbc-pages-'.$i,
+                'selected' => $classes[$i]['conditions'],
+                'class' => 'cbc-pages'
+            ]);
+            break;
+        default:
+
+        ?>
+        <select name= "cbc_options[<?php echo esc_attr($args['label_for'])?>][<?php echo $i ?>][conditions]" id="cbc-post-types-<?php echo $i?>" class="cbc-types">
     
-    ?>
+        <?php 
+        
+            foreach($types as $type){
+                echo '<option>'.$type->name.'</option>';
+            }
+        
+        ?>
+        
+        </select>
+
+        <?php
+    }
     
-    </select>
+    
+
+    
+   ?>
     
     </div>
 
@@ -109,13 +125,15 @@ function cbc_field_classes_cb($args)
 
         $i++;
 
+        ?>
+
+        </fieldset>
+            <?php
+
     }
     while($i < count($classes));
 
-    ?>
 
-</fieldset>
-    <?php
 }
 
 function cbc_field_permissions_cb($args)
