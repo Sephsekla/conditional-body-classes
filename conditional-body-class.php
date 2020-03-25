@@ -34,6 +34,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Define DLM FILE
 define( 'CBC_PLUGIN_PATH', trailingslashit(plugin_dir_path(__FILE__) ));
+define( 'CBC_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__) ));
+
 
 /**
  * Check we have a PHP version high enough to support namespaces
@@ -43,6 +45,8 @@ if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
 	require_once CBC_PLUGIN_PATH.'inc/settings.php';
 	require_once CBC_PLUGIN_PATH.'inc/helpers.php';
 	require_once CBC_PLUGIN_PATH.'inc/permissions.php';
+	require_once CBC_PLUGIN_PATH.'inc/scripts.php';
+
 }else {
 	require_once CBC_PLUGIN_PATH.'inc/php-version.php';
 }

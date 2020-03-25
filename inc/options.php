@@ -58,7 +58,13 @@ function options_page_html()
     ?>
     </form>
     </div>
+
+
+    
     <?php
+
+$screen = get_current_screen(); 
+print_r($screen);
 }
     
    /**
