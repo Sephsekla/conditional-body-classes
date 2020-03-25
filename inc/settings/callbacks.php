@@ -59,8 +59,13 @@ function cbc_field_classes_cb($args)
 
 
     </select>
+    <div class="cbc-conditions" style="display: inline-block">
     <input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][conditions]"
         value="<?php echo $classes[$i]['conditions'] ?>">
+    
+    </div>
+
+    
 
 
     <br>
