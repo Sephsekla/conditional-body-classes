@@ -103,13 +103,16 @@ do{
 
 <input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][classes]" value="<?php echo $classes[$i]['classes']?>">
 <select name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][operator]">
-    <option disabled>Please select...</option>
-    <option>Lorem</option>
 
+<?php foreach($operators as $operator){
+    ?>
+    <option value="<?php echo $operator[1] ?>" <?php echo selected($operator[1] === $options[ $args['label_for'] ][$i]['operator'], true, false); ?>><?php echo $operator[0] ?></option>
+    <?php
+}
 
-
-
-    <option value="test" <?php echo selected('test' === $options[ $args['label_for'] ][$i]['operator'], true, false); ?>>Test Option</option>
+?>
+   
+    
 </select>
 <input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][conditions]" value="<?php echo $classes[$i]['conditions'] ?>">
 
