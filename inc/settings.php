@@ -1,4 +1,12 @@
 <?php
+/**
+ * Settings
+ *
+ * Settings attached to options page
+ *
+ * @package cbc
+ * @since   0.4.0
+ */
 
 namespace cbc\settings;
 
