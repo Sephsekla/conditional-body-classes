@@ -20,6 +20,7 @@ function cbc_section_classes_cb()
     echo 'SECTION CALLBACk';
 }
 
+
 function cbc_field_classes_cb($args)
 {
     $options = get_option('cbc_options');
@@ -42,17 +43,6 @@ function cbc_field_classes_cb($args)
 
     $i = 0;
 
-    $operators = [
-    ['Page', 'page'],
-    ['Post Type', 'post_type'],
-
-    ];
-
-    $types = get_post_types(
-        [
-        'public' => true
-        ], 'objects'
-    ); 
 
     do{
 
@@ -62,24 +52,12 @@ function cbc_field_classes_cb($args)
 
     <input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][classes]"
         value="<?php echo $classes[$i]['classes']?>">
-    <select name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][operator]" class="cbc-operator">
-
-        <?php foreach($operators as $operator){
-            ?>
-        <option value="<?php echo $operator[1] ?>"
-            <?php echo selected($operator[1] === $options[ $args['label_for'] ][$i]['operator'], true, false); ?>>
-            <?php echo $operator[0] ?></option>
-            <?php
-        }
-
-        ?>
+        
+        <?php helpers\dropdown_operators($args,$i) ?>
 
 
-    </select>
+
     <div class="cbc-conditions" style="display: inline-block">
-    <!--<input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][conditions]"
-        value="<?php echo $classes[$i]['conditions'] ?>"> -->
-
 
 
         <?php 
@@ -97,20 +75,7 @@ function cbc_field_classes_cb($args)
             break;
         default:
 
-            ?>
-        <select name= "cbc_options[<?php echo esc_attr($args['label_for'])?>][<?php echo $i ?>][conditions]" id="cbc-post-types-<?php echo $i?>" class="cbc-types">
-    
-            <?php 
-        
-            foreach($types as $type){
-                echo '<option>'.$type->name.'</option>';
-            }
-        
-            ?>
-        
-        </select>
-
-            <?php
+            helpers\dropdown_post_types($args['label_for'],$i);
         }
     
     
@@ -122,14 +87,10 @@ function cbc_field_classes_cb($args)
 
     <br>
 
-        <?php
-
-        $i++;
-
-        ?>
-
         </fieldset>
             <?php
+
+$i++;
 
     }
     while($i < count($classes));
