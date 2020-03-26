@@ -20,14 +20,23 @@ function cbc_section_classes_cb()
     echo 'SECTION CALLBACk';
 }
 
+/**
+ * class_row
+ *
+ * @param  mixed $label
+ * @param  mixed $i
+ * @param  mixed $classes
+ * @param  mixed $options
+ * @return void
+ */
 function class_row($label,$i,$classes,$options){
 
     ?>
 
-    <fieldset id="<?php echo esc_attr($label).'-'.$i; ?>" class="cbc-set" data-custom="<?php echo esc_attr($args['cbc_custom_data']); ?>" data-index="<?php echo $i ?>" data-label="<?php echo $label ?>">
+    <fieldset id="<?php echo esc_attr($label).'-'.$i; ?>" class="cbc-set" data-index="<?php echo $i ?>" data-label="<?php echo $label ?>">
     
         <input type="text" name="cbc_options[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
-            value="<?php echo $classes[$i]['classes']?>">
+            value="<?php echo $classes[$i]['classes']?>" required>
             
             <?php helpers\dropdown_operators($options,$label,$i) ?>
     
@@ -85,19 +94,37 @@ function cbc_field_classes_cb($args)
     <p class="description">
         <?php esc_html_e('Lorem ipsum here\s a description', 'cbc'); ?>
     </p>
+    
+
+    <div id="cbc-class-rules">
 
     <?php
 
     $i = 0;
 
+   // class_row($args['label_for'],$i,$classes,$options);
 
-    while($i < count($classes) /* && $i<1 */){
+   class_row($args['label_for'],0,[],get_option('cbc_options'));
+
+
+
+
+    while($i < count($classes)){
 
        class_row($args['label_for'],$i,$classes,$options);
 
 $i++;
 
     }
+
+    ?>
+
+    </div>
+
+<input type="button" name="add" id="add" class="button button-primary" value="Add a rule" data-label="<?php echo $args['label_for'] ?>">
+
+
+    <?php
 
 
 

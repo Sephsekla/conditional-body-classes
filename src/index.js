@@ -32,19 +32,47 @@ $(document).ready(function () {
             })
 
 
-        })
+        });
+
+    
 
         $(set).find(".remove").click(function () {
 
             $(set).remove();
 
 
-        })
-
+        });
 
     });
 
 
-    /*$(".cbc-conditions > select").attr('disabled','disabled');
-    $(".cbc-conditions > select").hide(); */
-})
+        $("#add").click(function () {
+
+            let index = 0;
+            let set = this;
+           
+    
+                $.ajax({
+                    type: "post",
+                    //dataType: "json",
+                    url: cbcVars.ajaxurl,
+                    data: {
+                        action: "cbc_add_class",
+                        index: index,
+                        label: $(set).attr('data-label'),
+                    },
+                    success: function (response) {
+                       
+                            $('#cbc-class-rules').append(response);
+    
+                        
+                    }
+                });
+    
+    
+
+
+
+    });
+
+});

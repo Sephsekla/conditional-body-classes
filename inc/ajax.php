@@ -47,7 +47,20 @@ function add_class_row(){
 
     $label = esc_html($_POST['label']);
 
+    echo '<pre>';
+
+    print_r($_POST);
+
+    print_r($options);
+;
+    echo '</pre>';
 
 
-    cbc\sections\class_row($label,$i,$classes,$options);
+
+  //cbc\settings\class_row($label,$i,$classes,$options);
+
+
+  
 }
+
+add_action("wp_ajax_cbc_add_class", __NAMESPACE__."\add_class_row");

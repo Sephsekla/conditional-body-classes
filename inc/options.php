@@ -62,9 +62,6 @@ function options_page_html()
 
     
     <?php
-
-$screen = get_current_screen(); 
-print_r($screen);
 }
     
    /**
