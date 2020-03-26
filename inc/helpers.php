@@ -76,3 +76,16 @@ function dropdown_post_types($label,$i)
 
     <?php
 }
+
+
+function dropdown_pages($label,$i,$selected){
+
+    wp_dropdown_pages(
+        [
+        'name' => "cbc_options[".esc_attr($label)."][".$i."][conditions]",
+        'id' => 'cbc-pages-'.$i,
+        'selected' => $selected,
+        'class' => 'cbc-pages'
+        ]
+    );
+}

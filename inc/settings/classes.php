@@ -64,14 +64,8 @@ function cbc_field_classes_cb($args)
     
         switch($options[ $args['label_for'] ][$i]['operator']){
         case 'page':
-            wp_dropdown_pages(
-                [
-                'name' => "cbc_options[".esc_attr($args['label_for'])."][".$i."][conditions]",
-                'id' => 'cbc-pages-'.$i,
-                'selected' => $classes[$i]['conditions'],
-                'class' => 'cbc-pages'
-                ]
-            );
+            helpers\dropdown_pages($args['label_for'],$i,$classes[$i]['conditions']);
+           
             break;
         default:
 
