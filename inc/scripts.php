@@ -4,11 +4,11 @@
  *
  * JavaScript files enqueued in admin
  *
- * @package cbc
+ * @package ccs
  * @since   0.4.0
  */
 
- namespace cbc\scripts;
+ namespace ccs\scripts;
 
 
  /**
@@ -18,19 +18,19 @@
  */
 function enqueue_admin_script( $hook ) {
 
-    //add_settings_error('cbc_messages', 'cbc_message', $hook, 'error');
+    //add_settings_error('ccs_messages', 'ccs_message', $hook, 'error');
 
 
-    if ('settings_page_cbc' != $hook ) {
+    if ('settings_page_ccs' != $hook ) {
         return;
     }
 
 
 
-    wp_register_script( 'cbc-script', CBC_PLUGIN_URL . 'dist/main.js', array('jquery'), '1.0' );
+    wp_register_script( 'ccs-script', ccs_PLUGIN_URL . 'dist/main.js', array('jquery'), '1.0' );
 
-    wp_localize_script( 'cbc-script', 'cbcVars', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));        
+    wp_localize_script( 'ccs-script', 'ccsVars', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));        
 
-    wp_enqueue_script('cbc-script');
+    wp_enqueue_script('ccs-script');
 }
 add_action( 'admin_enqueue_scripts', __NAMESPACE__.'\enqueue_admin_script' );

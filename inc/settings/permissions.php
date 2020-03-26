@@ -4,20 +4,20 @@
  *
  * Callback functions for settings
  *
- * @package cbc
+ * @package ccs
  * @since   0.4.0
  */
 
 
 
-namespace cbc\settings;
+namespace ccs\settings;
 
-use cbc\options as options;
-use cbc\helpers as helpers;
+use ccs\options as options;
+use ccs\helpers as helpers;
 
-function cbc_field_permissions_cb($args)
+function ccs_field_permissions_cb($args)
 {
-    $options = get_option('cbc_options');
+    $options = get_option('ccs_options');
 
 
     $roles = helpers\get_all_roles();
@@ -28,9 +28,9 @@ function cbc_field_permissions_cb($args)
 
 
 <fieldset id="<?php echo esc_attr($args['label_for']); ?>"
-    data-custom="<?php echo esc_attr($args['cbc_custom_data']); ?>">
+    data-custom="<?php echo esc_attr($args['ccs_custom_data']); ?>">
     <p class="description">
-        <?php esc_html_e('Select which roles can access Conditional Body Classes', 'cbc'); ?>
+        <?php esc_html_e('Select which roles can access Conditional Code Suite', 'ccs'); ?>
     </p>
 
     <?php foreach($roles as $key=>$role){
@@ -40,11 +40,11 @@ function cbc_field_permissions_cb($args)
 
             ?>
 
-    <input type="checkbox" disabled name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]"
+    <input type="checkbox" disabled name="ccs_options[<?php echo esc_attr($args['label_for']); ?>][]"
         value="<?php echo $key ?>"
             <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($key, $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br>
 
-    <input type="hidden" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>">
+    <input type="hidden" name="ccs_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>">
 
             <?php
 
@@ -56,7 +56,7 @@ function cbc_field_permissions_cb($args)
 
 
     <input type="checkbox" <?php echo ('administrator' === $key) ? 'disabled' : '' ?>
-        name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>"
+        name="ccs_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>"
             <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($key, $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br>
 
 

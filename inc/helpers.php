@@ -4,12 +4,12 @@
  *
  * Helper functions used throughout the plugin
  *
- * @package cbc
+ * @package ccs
  * @since   0.3.0
  */
 
 
-namespace cbc\helpers;
+namespace ccs\helpers;
 
 function get_all_roles()
 {
@@ -31,8 +31,8 @@ function dropdown_operators($options,$label,$i)
 
     ?>
 
-<select name="cbc_options[<?php echo esc_attr($label); ?>][<?php echo $i ?>][operator]"
-    class="cbc-operator">
+<select name="ccs_options[<?php echo esc_attr($label); ?>][<?php echo $i ?>][operator]"
+    class="ccs-operator">
 
     <?php foreach($operators as $operator){
         ?>
@@ -61,8 +61,8 @@ function dropdown_post_types($label,$i)
         ], 'objects'
     ); 
     ?>
-<select name="cbc_options[<?php echo esc_attr($label)?>][<?php echo $i ?>][conditions]"
-    id="cbc-post-types-<?php echo $i?>" class="cbc-types">
+<select name="ccs_options[<?php echo esc_attr($label)?>][<?php echo $i ?>][conditions]"
+    id="ccs-post-types-<?php echo $i?>" class="ccs-types">
 
     <?php 
     
@@ -82,10 +82,10 @@ function dropdown_pages($label,$i,$selected){
 
     wp_dropdown_pages(
         [
-        'name' => "cbc_options[".esc_attr($label)."][".$i."][conditions]",
-        'id' => 'cbc-pages-'.$i,
+        'name' => "ccs_options[".esc_attr($label)."][".$i."][conditions]",
+        'id' => 'ccs-pages-'.$i,
         'selected' => $selected,
-        'class' => 'cbc-pages'
+        'class' => 'ccs-pages'
         ]
     );
 }

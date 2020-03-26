@@ -5,15 +5,15 @@
  * Displays an error message when the minimum php version is not met.
  *
  *
- * @package cbc
+ * @package ccs
  * @since 0.1.0
  */
 
 
-function cbc_php_requirement_notice() {
+function ccs_php_requirement_notice() {
     $class = 'notice notice-error';
-    $message = __( 'Conditional Body Class requires a minimum PHP version of 5.3. For more information visit <a href="https://wordpress.org/support/update-php/" target="_blank">WordPress Support</a>', 'cbc' );
+    $message = __( 'Conditional Code Suite requires a minimum PHP version of 5.3. For more information visit <a href="https://wordpress.org/support/update-php/" target="_blank">WordPress Support</a>', 'ccs' );
  
     printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message ); 
 }
-add_action( 'admin_notices', 'cbc_php_requirement_notice' );
+add_action( 'admin_notices', 'ccs_php_requirement_notice' );

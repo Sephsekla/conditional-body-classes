@@ -1488,7 +1488,7 @@ packages:
     engines:
       node: '>4'
     resolution:
-      integrity: sha512-BcxQSKTSEEQUftYpBVnsH4SF05NTuBokb19/sBt6asXGKZ/6VP7PLG1CBCkFDYOnhXhPh0jMhO6xZ71oYHXHBA==
+      integrity: sha512-BcxQSKTSEEQUftYpBVnsH4SF05NTuBokb19/sBt6asXGKZ/6VP7PLG1ccskFDYOnhXhPh0jMhO6xZ71oYHXHBA==
   /css-loader/1.0.1_webpack@4.42.1:
     dependencies:
       babel-code-frame: 6.26.0
@@ -2704,7 +2704,7 @@ packages:
     engines:
       node: '>=4'
     resolution:
-      integrity: sha512-wPVv/y/QQ/Uiirj/vh3oP+1Ww+AWehmi1g5fFWGPF6IpCBCDVrhgHRMvrLfdYcwDh3QJbGXDW4JAuzxElLSqKA==
+      integrity: sha512-wPVv/y/QQ/Uiirj/vh3oP+1Ww+AWehmi1g5fFWGPF6IpccsDVrhgHRMvrLfdYcwDh3QJbGXDW4JAuzxElLSqKA==
   /is-absolute-url/2.1.0:
     dev: true
     engines:
@@ -2881,7 +2881,7 @@ packages:
     engines:
       node: '>=8'
     resolution:
-      integrity: sha512-drqDG3cbczxxEJRoOXcOjtdp1J/lyp1mNn0xaznRs8+muBhgQcrnbspox5X5fOw0HnMnbfDzvnEMEtqDEJEo8w==
+      integrity: sha512-drqDG3ccszxxEJRoOXcOjtdp1J/lyp1mNn0xaznRs8+muBhgQcrnbspox5X5fOw0HnMnbfDzvnEMEtqDEJEo8w==
   /is-plain-object/2.0.4:
     dependencies:
       isobject: 3.0.1

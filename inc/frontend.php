@@ -4,17 +4,17 @@
  *
  * Frontend filters
  *
- * @package cbc
+ * @package ccs
  * @since   0.5.0
  */
 
-namespace cbc\frontend;
+namespace ccs\frontend;
 
 function filter_body_class($class_list){
 
-    $options = get_option('cbc_options');
+    $options = get_option('ccs_options');
 
-    $classes = $options['cbc_field_classes'];
+    $classes = $options['ccs_field_classes'];
 
     foreach ($classes as $class){
 
