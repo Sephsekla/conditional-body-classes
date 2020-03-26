@@ -3,7 +3,7 @@
 	Plugin Name: Conditional Body Class
 	Plugin URI: https://joebr.io
 	Description: Add body classes based on conditional factors on your site
-	Version: 0.5.0
+	Version: 0.6.0
 	Author: JBR Digital
 	Author URI: https://www.never5.com
 	Requires at least: 5.3.0
@@ -41,12 +41,7 @@ define( 'CBC_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__) ));
  * Check we have a PHP version high enough to support namespaces
  */
 if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
-	require_once CBC_PLUGIN_PATH.'inc/options.php';
-	require_once CBC_PLUGIN_PATH.'inc/settings.php';
-	require_once CBC_PLUGIN_PATH.'inc/helpers.php';
-	require_once CBC_PLUGIN_PATH.'inc/permissions.php';
-	require_once CBC_PLUGIN_PATH.'inc/scripts.php';
-	require_once CBC_PLUGIN_PATH.'inc/ajax.php';
+	require_once CBC_PLUGIN_PATH.'init.php';
 
 }else {
 	require_once CBC_PLUGIN_PATH.'inc/php-version.php';
