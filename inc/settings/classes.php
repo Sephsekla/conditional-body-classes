@@ -39,13 +39,15 @@ function class_row($label,$i,$classes,$options){
             <?php 
         
             switch($options[ $label ][$i]['operator']){
-            case 'page':
-                helpers\dropdown_pages($label,$i,$classes[$i]['conditions']);
-               
+            case 'post_type':
+                helpers\dropdown_post_types($label,$i);
+
                 break;
             default:
     
-                helpers\dropdown_post_types($label,$i);
+
+                helpers\dropdown_pages($label,$i,$classes[$i]['conditions']);
+
             }
         
         
