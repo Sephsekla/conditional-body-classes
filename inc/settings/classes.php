@@ -63,10 +63,12 @@ function class_row($label,$i,$classes,$options){
     
         
             ?>
+
         
         </div>
     
-            <span class="remove">Remove</span>
+        <span class="remove">Remove</span>
+
             <br>
             </fieldset>
     

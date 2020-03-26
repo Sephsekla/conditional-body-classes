@@ -5,51 +5,58 @@ $ = jQuery;
 
 $(document).ready(function () {
 
-    $(".cbc-set").each(function () {
 
-        let conditions = $(this).find('.cbc-conditions');
-        let index = $(this).attr('data-index');
-        let set = this;
-
-        $(set).find(".cbc-operator").change(function () {
-
-            $.ajax({
-                type: "post",
-                //dataType: "json",
-                url: cbcVars.ajaxurl,
-                data: {
-                    action: "cbc_update_condition",
-                    index: index,
-                    value: $(this).val(),
-                    label: $(set).attr('data-label'),
-                },
-                success: function (response) {
-                   
-                        $(conditions).html(response);
-
-                    
-                }
-            })
+    $('#cbc-class-rules').on('change',".cbc-operator",function(){
+        
+        let set = $(this).parent('.cbc-set');
+        let conditions = $(set).find('.cbc-conditions');
+        let index = $(set).attr('data-index');
 
 
-        });
+        $.ajax({
+            type: "post",
+            //dataType: "json",
+            url: cbcVars.ajaxurl,
+            data: {
+                action: "cbc_update_condition",
+                index: index,
+                value: $(this).val(),
+                label: $(set).attr('data-label'),
+            },
+            success: function (response) {
+               
+                    $(conditions).html(response);
 
-    
-
-        $(set).find(".remove").click(function () {
-
-            $(set).remove();
+                
+            }
+        })
 
 
-        });
+
+
+    })
+
+
+    $('#cbc-class-rules').on('click',".remove",function(){
+        let set = $(this).parent('.cbc-set');
+        $(set).remove();
+        console.log("remove");
+
 
     });
 
 
         $("#add").click(function () {
 
-            let index = 0;
-            let set = this;
+            let index = 0, set = this;
+
+                $('.cbc-set').each(function() {
+                    var value = parseFloat($(this).attr('data-index'));
+                    index = (value > index) ? value : index;
+                  });
+            
+
+                  index++;
            
     
                 $.ajax({
