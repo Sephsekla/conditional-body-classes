@@ -53,7 +53,7 @@ function cbc_field_classes_cb($args)
     <input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][classes]"
         value="<?php echo $classes[$i]['classes']?>">
         
-        <?php helpers\dropdown_operators($args,$i) ?>
+        <?php helpers\dropdown_operators($options,$args,$i) ?>
 
 
 

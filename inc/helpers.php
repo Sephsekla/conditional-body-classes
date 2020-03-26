@@ -20,7 +20,7 @@ function get_all_roles()
     return $roles;
 }
 
-function dropdown_operators($args,$i)
+function dropdown_operators($options,$args,$i)
 {
 
     $operators = [
