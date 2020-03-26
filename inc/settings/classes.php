@@ -48,7 +48,7 @@ function cbc_field_classes_cb($args)
 
         ?>
 
-<fieldset id="<?php echo esc_attr($args['label_for']).'-'.$i; ?>" class="cbc-set" data-custom="<?php echo esc_attr($args['cbc_custom_data']); ?>" data-index="<?php echo $i ?>">
+<fieldset id="<?php echo esc_attr($args['label_for']).'-'.$i; ?>" class="cbc-set" data-custom="<?php echo esc_attr($args['cbc_custom_data']); ?>" data-index="<?php echo $i ?>" data-label="<?php echo $args['label_for'] ?>">
 
     <input type="text" name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][classes]"
         value="<?php echo $classes[$i]['classes']?>">
