@@ -11,6 +11,7 @@
  namespace cbc\ajax;
 
  use cbc\helpers as helpers;
+ use cbc\settings as settings;
 
 
 add_action("wp_ajax_cbc_update_condition", __NAMESPACE__."\update_condition");
@@ -47,17 +48,11 @@ function add_class_row(){
 
     $label = esc_html($_POST['label']);
 
-    echo '<pre>';
-
-    print_r($_POST);
-
-    print_r($options);
-;
-    echo '</pre>';
 
 
+settings\class_row($label,$i,$classes,$options);
 
-  //cbc\settings\class_row($label,$i,$classes,$options);
+wp_die();
 
 
   

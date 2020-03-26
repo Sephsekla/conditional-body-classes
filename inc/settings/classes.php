@@ -104,8 +104,6 @@ function cbc_field_classes_cb($args)
 
    // class_row($args['label_for'],$i,$classes,$options);
 
-   class_row($args['label_for'],0,[],get_option('cbc_options'));
-
 
 
 
