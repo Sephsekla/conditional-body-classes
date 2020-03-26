@@ -79,9 +79,10 @@ function cbc_field_classes_cb($args)
     
     </div>
 
-    <br>
-
+        <span class="remove">Remove</span>
+        <br>
         </fieldset>
+
             <?php
 
 $i++;

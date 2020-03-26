@@ -9,8 +9,9 @@ $(document).ready(function () {
 
         let conditions = $(this).find('.cbc-conditions');
         let index = $(this).attr('data-index');
+        let set = this;
 
-        $(this).find(".cbc-operator").change(function () {
+        $(set).find(".cbc-operator").change(function () {
 
             $.ajax({
                 type: "post",
@@ -20,6 +21,7 @@ $(document).ready(function () {
                     action: "cbc_update_condition",
                     index: index,
                     value: $(this).val(),
+                    label: $(set).attr('data-label'),
                 },
                 success: function (response) {
                    
@@ -30,11 +32,16 @@ $(document).ready(function () {
             })
 
 
-          
+        })
 
+        $(set).find(".remove").click(function () {
+
+            $(set).remove();
 
 
         })
+
+
     });
 
 
