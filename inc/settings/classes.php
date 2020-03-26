@@ -91,14 +91,14 @@ function cbc_field_classes_cb($args)
     $i = 0;
 
 
-    do{
+    while($i < count($classes) /* && $i<1 */){
 
        class_row($args['label_for'],$i,$classes,$options);
 
 $i++;
 
     }
-    while($i < count($classes) && $i<1);
+
 
 
 
