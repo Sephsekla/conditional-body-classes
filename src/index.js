@@ -6,7 +6,9 @@ $ = jQuery;
 $(document).ready(function(){
 
     $(".cbc-set").each(function(){
-//$(this).hide();
+        $(this).find(".cbc-operator").change(function(){
+            alert("change");
+        })
     });
 
 
