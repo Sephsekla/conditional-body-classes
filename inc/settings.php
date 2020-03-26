@@ -96,6 +96,11 @@ function sanitize_cbc($value)
 
     }
 
+    /**
+     * Renumber array to avoid a headache later
+     */
+    $value['cbc_field_classes'] = array_combine(range(0, count($value['cbc_field_classes']) - 1), array_values($value['cbc_field_classes']));
+
 
 
     return $value;
