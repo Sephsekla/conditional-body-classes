@@ -17,7 +17,24 @@ function filter_body_class($class_list){
     $classes = $options['cbc_field_classes'];
 
     foreach ($classes as $class){
-        $class_list[] = $class['classes'];
+
+        switch($class['operator']){
+            case 'page':
+                if(get_the_id() === intval($class['conditions'])){
+                    $class_list[] = $class['classes'];
+
+                }
+            break;
+            case 'post_type':
+
+                if(get_post_type() === $class['conditions']){
+                    $class_list[] = $class['classes'];
+                }
+
+            break;
+        }
+
+
     }
 
 
