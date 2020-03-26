@@ -20,7 +20,7 @@ function get_all_roles()
     return $roles;
 }
 
-function dropdown_operators($options,$args,$i)
+function dropdown_operators($options,$label,$i)
 {
 
     $operators = [
@@ -31,13 +31,13 @@ function dropdown_operators($options,$args,$i)
 
     ?>
 
-<select name="cbc_options[<?php echo esc_attr($args['label_for']); ?>][<?php echo $i ?>][operator]"
+<select name="cbc_options[<?php echo esc_attr($label); ?>][<?php echo $i ?>][operator]"
     class="cbc-operator">
 
     <?php foreach($operators as $operator){
         ?>
     <option value="<?php echo $operator[1] ?>"
-        <?php echo selected($operator[1] === $options[ $args['label_for'] ][$i]['operator'], true, false); ?>>
+        <?php echo selected($operator[1] === $options[ $label ][$i]['operator'], true, false); ?>>
         <?php echo $operator[0] ?></option>
         <?php
     }

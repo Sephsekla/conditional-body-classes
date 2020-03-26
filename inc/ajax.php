@@ -36,3 +36,18 @@ function update_condition(){
     
     wp_die();
 }
+
+function add_class_row(){
+
+    $i = intval($_POST['index']);
+
+    $options = get_option('cbc_options');
+
+    $classes = $options['cbc_field_classes'];
+
+    $label = esc_html($_POST['label']);
+
+
+
+    cbc\sections\class_row($label,$i,$classes,$options);
+}
