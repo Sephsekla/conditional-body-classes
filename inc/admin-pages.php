@@ -10,7 +10,7 @@
 
 use ccs_settings as settings;
 
- namespace ccs\options;
+ namespace ccs\pages;
 
 
 function options_page()
