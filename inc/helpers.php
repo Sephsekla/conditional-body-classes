@@ -31,7 +31,7 @@ function dropdown_operators($field,$options,$label,$i)
 
     ?>
 
-<select name="ccs_body_classes[<?php echo esc_attr($label); ?>][<?php echo $i ?>][operator]"
+<select name="<?php echo $field ?>[<?php echo esc_attr($label); ?>][<?php echo $i ?>][operator]"
     class="ccs-operator">
 
     <?php foreach($operators as $operator){
@@ -61,7 +61,7 @@ function dropdown_post_types($field,$label,$i)
         ], 'objects'
     ); 
     ?>
-<select name="ccs_body_classes[<?php echo esc_attr($label)?>][<?php echo $i ?>][conditions]"
+<select name="<?php echo $field ?>[<?php echo esc_attr($label)?>][<?php echo $i ?>][conditions]"
     id="ccs-post-types-<?php echo $i?>" class="ccs-types">
 
     <?php 
@@ -82,7 +82,7 @@ function dropdown_pages($field,$label,$i,$selected){
 
     wp_dropdown_pages(
         [
-        'name' => "ccs_body_classes[".esc_attr($label)."][".$i."][conditions]",
+        'name' => $field."[".esc_attr($label)."][".$i."][conditions]",
         'id' => 'ccs-pages-'.$i,
         'selected' => $selected,
         'class' => 'ccs-pages'

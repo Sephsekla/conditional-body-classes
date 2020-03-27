@@ -52,7 +52,7 @@ function add_class_row(){
 
 
 
-settings\class_row('test',$label,$i,$classes,$options);
+settings\class_row($option,$label,$i,$classes,$options);
 
 wp_die();
 

@@ -35,7 +35,7 @@ function class_row($field,$label,$i,$classes,$options){
 
     <fieldset id="<?php echo esc_attr($label).'-'.$i; ?>" class="ccs-set" data-index="<?php echo $i ?>" data-label="<?php echo $label ?>">
     
-        <input type="text" name="ccs_body_classes[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
+        <input type="text" name="<?php echo $field ?>[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
             value="<?php echo $classes[$i]['classes']?>" required>
             
             <?php helpers\dropdown_operators($field,$options,$label,$i) ?>
@@ -156,7 +156,7 @@ function body_class_html()
     <form action="options.php" method="post">
     <?php
     // output security fields for the registered setting "wporg"
-    settings_fields('ccs');
+    settings_fields('ccs_group_body_classes');
     // output setting sections and their fields
     // (sections are registered for "wporg", each field is registered to a specific section)
     do_settings_sections('ccs-body-class');

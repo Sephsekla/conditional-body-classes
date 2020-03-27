@@ -98,7 +98,7 @@ function permissions_html()
     <form action="options.php" method="post">
     <?php
     // output security fields for the registered setting "wporg"
-    settings_fields('ccs');
+    settings_fields('ccs_group_permissions');
     // output setting sections and their fields
     // (sections are registered for "wporg", each field is registered to a specific section)
     do_settings_sections('ccs-permissions');

@@ -38,7 +38,7 @@ function header_footer_html()
     <form action="options.php" method="post">
     <?php
     // output security fields for the registered setting "wporg"
-    settings_fields('ccs');
+    settings_fields('ccs_group_header_footer');
     // output setting sections and their fields
     // (sections are registered for "wporg", each field is registered to a specific section)
     do_settings_sections('ccs-header-footer');
@@ -54,10 +54,12 @@ function header_footer_html()
 }
 
 
-function ccs_field_header_footer_cb(){
+function ccs_field_header_footer_cb($args){
     $options = get_option('ccs_header_footer');
 
     $classes = is_array($options['ccs_field_header_footer']) ? $options['ccs_field_header_footer'] : [];
+
+    //print_r($options['ccs_field_header_footer']);
 
 
 
@@ -85,7 +87,7 @@ helpers\print_nice($options);
 
     while($i < count($classes)){
 
-       class_row('ccs_body_classes',$args['label_for'],$i,$classes,$options);
+       class_row('ccs_header_footer',$args['label_for'],$i,$classes,$options);
 
 $i++;
 

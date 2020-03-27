@@ -18,11 +18,11 @@ use ccs\helpers as helpers;
 function settings_init()
 {
 
-    add_option('ccs');
+   // add_option('ccs');
 
     // register a new setting for "ccs" page
     register_setting(
-        'ccs', 'ccs_body_classes', [
+        'ccs_group_body_classes', 'ccs_body_classes', [
         'sanitize_callback' => __NAMESPACE__.'\sanitize_body_classes',
         'default' => [
         ]
@@ -31,15 +31,15 @@ function settings_init()
 
 
     register_setting(
-        'ccs', 'ccs_header_footer', [
-        'sanitize_callback' => __NAMESPACE__.'\sanitize_body_classes',
+        'ccs_group_header_footer', 'ccs_header_footer', [
+        'sanitize_callback' => __NAMESPACE__.'\sanitize_header_footer',
         'default' => [
         ]
         ]
     );
 
     register_setting(
-        'ccs', 'ccs_permissions', [
+        'ccs_group_permissions', 'ccs_permissions', [
         'sanitize_callback' => __NAMESPACE__.'\sanitize_permissions',
         'default' => [
             'ccs_field_permissions' => [
@@ -146,6 +146,22 @@ function sanitize_body_classes($value)
     return $value;
 }
 
+function sanitize_header_footer($value)
+{
+
+    /**
+     * Renumber array to avoid a headache later
+     */
+
+    if(is_array($value['ccs_field_header_footer']) && count($value['ccs_field_header_footer']) > 0){
+
+    $value['ccs_field_header_footer'] = array_combine(range(0, count($value['ccs_field_header_footer']) - 1), array_values($value['ccs_field_header_footer']));
+
+    }
+
+
+    return $value;
+}
 
 function sanitize_permissions($value)
 {
