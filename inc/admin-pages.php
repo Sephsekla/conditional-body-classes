@@ -53,7 +53,7 @@ function options_page()
         'Permissions',
         'manage_options',
         'ccs-permissions',
-        'ccs\settings\body_class_html'
+        'ccs\settings\permissions_html'
     );
 }
 
