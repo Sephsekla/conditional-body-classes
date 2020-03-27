@@ -12,7 +12,7 @@ namespace ccs\frontend;
 
 function filter_body_class($class_list){
 
-    $options = get_option('ccs_options');
+    $options = get_option('ccs_body_classes');
 
     $classes = $options['ccs_field_classes'];
 

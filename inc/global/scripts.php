@@ -21,7 +21,7 @@ function enqueue_admin_script( $hook ) {
     //add_settings_error('ccs_messages', 'ccs_message', $hook, 'error');
 
 
-    if ('settings_page_ccs' != $hook ) {
+    if ('ccs_page_ccs-body-classes' != $hook ) {
         return;
     }
 
@@ -34,3 +34,8 @@ function enqueue_admin_script( $hook ) {
     wp_enqueue_script('ccs-script');
 }
 add_action( 'admin_enqueue_scripts', __NAMESPACE__.'\enqueue_admin_script' );
+
+add_action('admin_footer',function(){
+    $screen = get_current_screen(); 
+print_r($screen);
+});

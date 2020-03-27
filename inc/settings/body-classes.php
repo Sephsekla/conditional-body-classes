@@ -35,7 +35,7 @@ function class_row($label,$i,$classes,$options){
 
     <fieldset id="<?php echo esc_attr($label).'-'.$i; ?>" class="ccs-set" data-index="<?php echo $i ?>" data-label="<?php echo $label ?>">
     
-        <input type="text" name="ccs_options[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
+        <input type="text" name="ccs_body_classes[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
             value="<?php echo $classes[$i]['classes']?>" required>
             
             <?php helpers\dropdown_operators($options,$label,$i) ?>
@@ -80,7 +80,7 @@ function class_row($label,$i,$classes,$options){
 
 function ccs_field_classes_cb($args)
 {
-    $options = get_option('ccs_options');
+    $options = get_option('ccs_body_classes');
 
     $classes = is_array($options['ccs_field_classes']) ? $options['ccs_field_classes'] : [];
 

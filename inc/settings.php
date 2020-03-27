@@ -19,7 +19,7 @@ function settings_init()
 {
     // register a new setting for "ccs" page
     register_setting(
-        'ccs', 'ccs_options', [
+        'ccs', 'ccs_body_classes', [
         'sanitize_callback' => __NAMESPACE__.'\sanitize_body_classes',
         'default' => [
             'ccs_field_permissions' => [
@@ -39,6 +39,8 @@ function settings_init()
         ]
         ]
     );
+
+    
     
     // register a new section in the "ccs" page
     add_settings_section(
