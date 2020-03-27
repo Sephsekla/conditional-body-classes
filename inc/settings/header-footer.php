@@ -85,7 +85,7 @@ helpers\print_nice($options);
 
     while($i < count($classes)){
 
-       class_row($args['label_for'],$i,$classes,$options);
+       class_row('ccs_body_classes',$args['label_for'],$i,$classes,$options);
 
 $i++;
 

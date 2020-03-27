@@ -88,6 +88,7 @@ function settings_init()
         'label_for' => 'ccs_field_classes',
         'class' => 'ccs_row',
         'ccs_custom_data' => 'custom',
+        
         ]
     );
 

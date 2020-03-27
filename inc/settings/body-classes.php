@@ -29,7 +29,7 @@ function ccs_section_classes_cb()
  * @param  mixed $options
  * @return void
  */
-function class_row($label,$i,$classes,$options){
+function class_row($field,$label,$i,$classes,$options){
 
     ?>
 
@@ -38,7 +38,7 @@ function class_row($label,$i,$classes,$options){
         <input type="text" name="ccs_body_classes[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
             value="<?php echo $classes[$i]['classes']?>" required>
             
-            <?php helpers\dropdown_operators($options,$label,$i) ?>
+            <?php helpers\dropdown_operators($field,$options,$label,$i) ?>
     
     
     
@@ -55,7 +55,7 @@ function class_row($label,$i,$classes,$options){
             default:
     
 
-                helpers\dropdown_pages($label,$i,$classes[$i]['conditions']);
+                helpers\dropdown_pages($field,$label,$i,$classes[$i]['conditions']);
 
             }
         
@@ -110,7 +110,7 @@ helpers\print_nice($options);
 
     while($i < count($classes)){
 
-       class_row($args['label_for'],$i,$classes,$options);
+       class_row('ccs_body_classes',$args['label_for'],$i,$classes,$options);
 
 $i++;
 

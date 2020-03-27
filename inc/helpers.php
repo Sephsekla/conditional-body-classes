@@ -20,7 +20,7 @@ function get_all_roles()
     return $roles;
 }
 
-function dropdown_operators($options,$label,$i)
+function dropdown_operators($field,$options,$label,$i)
 {
 
     $operators = [
@@ -52,7 +52,7 @@ function dropdown_operators($options,$label,$i)
 }
 
 
-function dropdown_post_types($label,$i)
+function dropdown_post_types($field,$label,$i)
 {
 
     $types = get_post_types(
@@ -78,7 +78,7 @@ function dropdown_post_types($label,$i)
 }
 
 
-function dropdown_pages($label,$i,$selected){
+function dropdown_pages($field,$label,$i,$selected){
 
     wp_dropdown_pages(
         [
