@@ -28,6 +28,17 @@ function options_page()
 
 
 
+        // add top level menu page
+        add_submenu_page(
+            'ccs',
+            'CCS Dashboard',
+            'Dashboard',
+            'ccs_edit',
+            'ccs',
+            'ccs\settings\body_class_html'
+        );
+
+
     // add top level menu page
     add_submenu_page(
         'ccs',
