@@ -13,4 +13,5 @@
 namespace ccs\settings;
 
 require_once 'permissions.php';
-require_once 'classes.php';
+require_once 'body-classes.php';
+require_once 'header-footer.php';
