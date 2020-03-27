@@ -22,15 +22,21 @@ function settings_init()
         'ccs', 'ccs_body_classes', [
         'sanitize_callback' => __NAMESPACE__.'\sanitize_body_classes',
         'default' => [
-            'ccs_field_permissions' => [
-                'administrator'
-            ]
+        ]
+        ]
+    );
+
+
+    register_setting(
+        'ccs', 'ccs_header_footer', [
+        'sanitize_callback' => __NAMESPACE__.'\sanitize_body_classes',
+        'default' => [
         ]
         ]
     );
 
     register_setting(
-        'ccs-permissions', 'ccs_permissions', [
+        'ccs', 'ccs_permissions', [
         'sanitize_callback' => __NAMESPACE__.'\sanitize_permissions',
         'default' => [
             'ccs_field_permissions' => [
@@ -47,7 +53,7 @@ function settings_init()
         'ccs_section_classes',
         __('Body Classes.', 'ccs'),
         __NAMESPACE__.'\ccs_section_classes_cb',
-        'ccs'
+        'ccs-body-class'
     );
 
     add_settings_section(
@@ -57,6 +63,14 @@ function settings_init()
         'ccs-permissions'
     );
 
+    add_settings_section(
+        'ccs_section_header_footer',
+        __('Header & Footer', 'ccs'),
+        __NAMESPACE__.'\ccs_section_classes_cb',
+        'ccs-header-footer'
+    );
+
+
 
     
     // register a new field in the "ccs_section_developers" section, inside the "ccs" page
@@ -65,7 +79,7 @@ function settings_init()
         // use $args' label_for to populate the id inside the callback
         __('Classes', 'ccs'),
         __NAMESPACE__.'\ccs_field_classes_cb',
-        'ccs',
+        'ccs-body-class',
         'ccs_section_classes',
         [
         'label_for' => 'ccs_field_classes',
@@ -73,6 +87,21 @@ function settings_init()
         'ccs_custom_data' => 'custom',
         ]
     );
+
+        // register a new field in the "ccs_section_developers" section, inside the "ccs" page
+        add_settings_field(
+            'ccs_field_header_footer', // as of WP 4.6 this value is used only internally
+            // use $args' label_for to populate the id inside the callback
+            __('Header and footer code', 'ccs'),
+            __NAMESPACE__.'\ccs_field_header_footer_cb',
+            'ccs-header-footer',
+            'ccs_section_header_footer',
+            [
+            'label_for' => 'ccs_field_header_footer',
+            'class' => 'ccs_row',
+            'ccs_custom_data' => 'custom',
+            ]
+        );
 
     add_settings_field(
         'ccs_field_permissions', // as of WP 4.6 this value is used only internally

@@ -21,7 +21,7 @@ function options_page()
         'Conditional Code Suite',
         'CCS',
         'ccs_edit',
-        'ccs',
+        'ccs-dashboard',
         'ccs\settings\body_class_html'
     );
 
@@ -30,36 +30,36 @@ function options_page()
 
         // add top level menu page
         add_submenu_page(
-            'ccs',
+            'ccs-dashboard',
             'CCS Dashboard',
             'Dashboard',
             'ccs_edit',
-            'ccs',
+            'ccs-dashboard',
             'ccs\settings\body_class_html'
         );
 
 
     // add top level menu page
     add_submenu_page(
-        'ccs',
+        'ccs-dashboard',
         'CCS Body Classes',
         'Body Classes',
         'ccs_edit',
-        'ccs-body-classes',
+        'ccs-body-class',
         'ccs\settings\body_class_html'
     );
 
     add_submenu_page(
-        'ccs',
+        'ccs-dashboard',
         'CCS Header and Footer',
         'Header and Footer',
         'ccs_edit',
         'ccs-header-footer',
-        'ccs\settings\body_class_html'
+        'ccs\settings\header_footer_html'
     );
 
     add_submenu_page(
-        'ccs',
+        'ccs-dashboard',
         'CCS Permissions',
         'Permissions',
         'manage_options',

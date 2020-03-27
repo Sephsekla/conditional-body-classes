@@ -21,7 +21,7 @@ function enqueue_admin_script( $hook ) {
     //add_settings_error('ccs_messages', 'ccs_message', $hook, 'error');
 
 
-    if ('ccs_page_ccs-body-classes' != $hook ) {
+    if (! in_array($hook, ['ccs_page_ccs-body-class','ccs_page_ccs-header-footer'] ) ) {
         return;
     }
 

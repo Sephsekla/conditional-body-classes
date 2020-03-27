@@ -134,9 +134,10 @@ $i++;
 function body_class_html()
 {
     // check user capabilities
-    if (! current_user_can('manage_options') ) {
+    if (! current_user_can('ccs_edit') ) {
         return;
     }
+    
     
     // add error/update messages
     
@@ -155,10 +156,10 @@ function body_class_html()
     <form action="options.php" method="post">
     <?php
     // output security fields for the registered setting "wporg"
-    settings_fields('ccs');
+    settings_fields('ccs-body-class');
     // output setting sections and their fields
     // (sections are registered for "wporg", each field is registered to a specific section)
-    do_settings_sections('ccs');
+    do_settings_sections('ccs-body-class');
     // output save settings button
     submit_button('Save Settings');
     ?>
