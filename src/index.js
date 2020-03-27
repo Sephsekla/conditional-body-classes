@@ -67,6 +67,7 @@ $(document).ready(function () {
                         action: "ccs_add_class",
                         index: index,
                         label: $(set).attr('data-label'),
+                        option: $(set).attr('data-option'),
                     },
                     success: function (response) {
                        

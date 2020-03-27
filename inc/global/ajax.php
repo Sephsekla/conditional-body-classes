@@ -42,7 +42,9 @@ function add_class_row(){
 
     $i = intval($_POST['index']);
 
-    $options = get_option('ccs_body_classes');
+    $option = esc_html($_POST['option']);
+
+    $options = get_option($option);
 
     $classes = $options['ccs_field_classes'];
 

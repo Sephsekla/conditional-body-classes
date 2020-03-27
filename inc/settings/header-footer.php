@@ -95,7 +95,7 @@ $i++;
 
     </div>
 
-<input type="button" name="add" id="add" class="button button-primary" value="Add a rule" data-label="<?php echo $args['label_for'] ?>">
+<input type="button" name="add" id="add" class="button button-primary" value="Add a rule" data-label="<?php echo $args['label_for'] ?>" data-option='ccs_header_footer'>
 
 
     <?php
