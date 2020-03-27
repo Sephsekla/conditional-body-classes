@@ -87,7 +87,7 @@ helpers\print_nice($options);
 
     while($i < count($classes)){
 
-       class_row('ccs_header_footer',$args['label_for'],$i,$classes,$options);
+       class_row('ccs_header_footer',$args['label_for'],$i,$classes,$options,true);
 
 $i++;
 
@@ -97,7 +97,7 @@ $i++;
 
     </div>
 
-<input type="button" name="add" id="add" class="button button-primary" value="Add a rule" data-label="<?php echo $args['label_for'] ?>" data-option='ccs_header_footer'>
+<input type="button" name="add" id="add" class="button button-primary" value="Add a rule" data-label="<?php echo $args['label_for'] ?>" data-option='ccs_header_footer' data-type="textarea">
 
 
     <?php

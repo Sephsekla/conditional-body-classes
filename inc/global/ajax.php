@@ -50,9 +50,10 @@ function add_class_row(){
 
     $label = esc_html($_POST['label']);
 
+    $type = filter_var($_POST['textarea'], FILTER_VALIDATE_BOOLEAN);
 
 
-settings\class_row($option,$label,$i,$classes,$options);
+settings\class_row($option,$label,$i,$classes,$options,$type);
 
 wp_die();
 

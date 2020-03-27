@@ -68,6 +68,7 @@ $(document).ready(function () {
                         index: index,
                         label: $(set).attr('data-label'),
                         option: $(set).attr('data-option'),
+                        textarea: "textarea" === $(set).attr('data-type')
                     },
                     success: function (response) {
                        
