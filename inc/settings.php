@@ -20,7 +20,18 @@ function settings_init()
     // register a new setting for "ccs" page
     register_setting(
         'ccs', 'ccs_options', [
-        'sanitize_callback' => __NAMESPACE__.'\sanitize_ccs',
+        'sanitize_callback' => __NAMESPACE__.'\sanitize_body_classes',
+        'default' => [
+            'ccs_field_permissions' => [
+                'administrator'
+            ]
+        ]
+        ]
+    );
+
+    register_setting(
+        'ccs-permissions', 'ccs_permissions', [
+        'sanitize_callback' => __NAMESPACE__.'\sanitize_permissions',
         'default' => [
             'ccs_field_permissions' => [
                 'administrator'
@@ -41,7 +52,7 @@ function settings_init()
         'ccs_section_permissions',
         __('Permissions', 'ccs'),
         __NAMESPACE__.'\ccs_section_classes_cb',
-        'ccs'
+        'ccs-permissions'
     );
 
 
@@ -66,7 +77,7 @@ function settings_init()
         // use $args' label_for to populate the id inside the callback
         __('Permissions', 'ccs'),
         __NAMESPACE__.'\ccs_field_permissions_cb',
-        'ccs',
+        'ccs-permissions',
         'ccs_section_permissions',
         [
         'label_for' => 'ccs_field_permissions',
@@ -83,7 +94,25 @@ function settings_init()
 
 
 
-function sanitize_ccs($value)
+function sanitize_body_classes($value)
+{
+
+    /**
+     * Renumber array to avoid a headache later
+     */
+
+    if(is_array($value['ccs_field_classes']) && count($value['ccs_field_classes']) > 0){
+
+    $value['ccs_field_classes'] = array_combine(range(0, count($value['ccs_field_classes']) - 1), array_values($value['ccs_field_classes']));
+
+    }
+
+
+    return $value;
+}
+
+
+function sanitize_permissions($value)
 {
 
     // $value[] = 'sanitized';
@@ -93,16 +122,6 @@ function sanitize_ccs($value)
         add_settings_error('ccs_messages', 'ccs_message', __('Warning, administrator needs access otherwise you\'ll be locked out!', 'ccs'), 'error');
 
         $value['ccs_field_permissions'][] ='administrator';
-
-    }
-
-    /**
-     * Renumber array to avoid a headache later
-     */
-
-    if(is_array($value['ccs_field_classes']) && count($value['ccs_field_classes']) > 0){
-
-    $value['ccs_field_classes'] = array_combine(range(0, count($value['ccs_field_classes']) - 1), array_values($value['ccs_field_classes']));
 
     }
 

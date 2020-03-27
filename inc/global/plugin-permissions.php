@@ -38,6 +38,6 @@ function update_role_permissions($old_value, $value, $option)
     
 }
 
-$option = 'ccs_options';
+$option = 'ccs_permissions';
 
 add_action("update_option_{$option}", __NAMESPACE__.'\update_role_permissions', 10, 3);

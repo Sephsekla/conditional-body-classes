@@ -17,7 +17,7 @@ use ccs\helpers as helpers;
 
 function ccs_field_permissions_cb($args)
 {
-    $options = get_option('ccs_options');
+    $options = get_option('ccs_permissions');
 
 
     $roles = helpers\get_all_roles();
@@ -40,11 +40,11 @@ function ccs_field_permissions_cb($args)
 
             ?>
 
-    <input type="checkbox" disabled name="ccs_options[<?php echo esc_attr($args['label_for']); ?>][]"
+    <input type="checkbox" disabled name="ccs_permissions[<?php echo esc_attr($args['label_for']); ?>][]"
         value="<?php echo $key ?>"
             <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($key, $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br>
 
-    <input type="hidden" name="ccs_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>">
+    <input type="hidden" name="ccs_permissions[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>">
 
             <?php
 
@@ -56,7 +56,7 @@ function ccs_field_permissions_cb($args)
 
 
     <input type="checkbox" <?php echo ('administrator' === $key) ? 'disabled' : '' ?>
-        name="ccs_options[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>"
+        name="ccs_permissions[<?php echo esc_attr($args['label_for']); ?>][]" value="<?php echo $key ?>"
             <?php echo isset($options[ $args['label_for'] ]) ? ( checked(in_array($key, $options[ $args['label_for'] ]), true, false) ) : ( '' ); ?>><?php echo $role['name'] ?><br>
 
 
@@ -87,6 +87,8 @@ function permissions_html()
         // add settings saved message with the class of "updated"
         add_settings_error('ccs_messages', 'ccs_message', __('Settings Saved', 'ccs'), 'updated');
     }
+
+    helpers\print_nice(get_option('ccs_permissions'));
     
     // show error/update messages
     settings_errors('ccs_messages');
@@ -96,10 +98,10 @@ function permissions_html()
     <form action="options.php" method="post">
     <?php
     // output security fields for the registered setting "wporg"
-    settings_fields('ccs');
+    settings_fields('ccs-permissions');
     // output setting sections and their fields
     // (sections are registered for "wporg", each field is registered to a specific section)
-    do_settings_sections('ccs');
+    do_settings_sections('ccs-permissions');
     // output save settings button
     submit_button('Save Settings');
     ?>
