@@ -15,12 +15,44 @@ use ccs_settings as settings;
 
 function options_page()
 {
-    // add top level menu page
-    add_options_page(
-        'Conditional Body Classes',
-        'Body Classes',
+
+
+    add_menu_page(
+        'Conditional Code Suite',
+        'CCS',
         'ccs_edit',
         'ccs',
+        __NAMESPACE__.'\options_page_html'
+    );
+
+
+
+
+    // add top level menu page
+    add_submenu_page(
+        'ccs',
+        'CCS Body Classes',
+        'Body Classes',
+        'ccs_edit',
+        'ccs-body-classes',
+        __NAMESPACE__.'\options_page_html'
+    );
+
+    add_submenu_page(
+        'ccs',
+        'CCS Header and Footer',
+        'Header and Footer',
+        'ccs_edit',
+        'ccs-header-footer',
+        __NAMESPACE__.'\options_page_html'
+    );
+
+    add_submenu_page(
+        'ccs',
+        'CCS Permissions',
+        'Permissions',
+        'manage_options',
+        'ccs-permissions',
         __NAMESPACE__.'\options_page_html'
     );
 }
