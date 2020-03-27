@@ -10,7 +10,7 @@
 
 namespace ccs\settings;
 
-require_once ccs_PLUGIN_PATH.'inc/settings/callbacks.php';
+require_once ccs_PLUGIN_PATH.'inc/settings/settings.php';
 
 use ccs\options as options;
 use ccs\helpers as helpers;
