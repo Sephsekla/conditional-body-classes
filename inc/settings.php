@@ -17,6 +17,9 @@ use ccs\helpers as helpers;
 
 function settings_init()
 {
+
+    add_option('ccs');
+
     // register a new setting for "ccs" page
     register_setting(
         'ccs', 'ccs_body_classes', [
