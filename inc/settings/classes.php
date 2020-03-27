@@ -67,7 +67,8 @@ function class_row($label,$i,$classes,$options){
         
         </div>
     
-        <span class="remove">Remove</span>
+
+        <input type="button" name="remove" class="button button-primary remove" value="Remove">
 
             <br>
             </fieldset>
@@ -85,9 +86,7 @@ function ccs_field_classes_cb($args)
 
 
 
-    echo '<pre>';
-    print_r($options);
-    echo '</pre>';
+helpers\print_nice($options);
     // output the field
     ?>
 

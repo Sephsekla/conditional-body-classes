@@ -89,3 +89,9 @@ function dropdown_pages($label,$i,$selected){
         ]
     );
 }
+
+function print_nice($array){
+    echo '<pre>';
+    print_r($array);
+    echo '</pre>';
+}
