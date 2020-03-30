@@ -67,8 +67,15 @@ function settings_init()
     );
 
     add_settings_section(
-        'ccs_section_header_footer',
-        __('Header & Footer', 'ccs'),
+        'ccs_section_header',
+        __('Header', 'ccs'),
+        __NAMESPACE__.'\ccs_section_classes_cb',
+        'ccs-header-footer'
+    );
+
+    add_settings_section(
+        'ccs_section_footer',
+        __('Footer', 'ccs'),
         __NAMESPACE__.'\ccs_section_classes_cb',
         'ccs-header-footer'
     );
@@ -96,12 +103,27 @@ function settings_init()
         add_settings_field(
             'ccs_field_header_footer', // as of WP 4.6 this value is used only internally
             // use $args' label_for to populate the id inside the callback
-            __('Header and footer code', 'ccs'),
-            __NAMESPACE__.'\ccs_field_header_footer_cb',
+            __('Header code', 'ccs'),
+            __NAMESPACE__.'\ccs_field_header_cb',
             'ccs-header-footer',
-            'ccs_section_header_footer',
+            'ccs_section_header',
             [
             'label_for' => 'ccs_field_header_footer',
+            'class' => 'ccs_row',
+            'ccs_custom_data' => 'custom',
+            ]
+        );
+
+         // register a new field in the "ccs_section_developers" section, inside the "ccs" page
+         add_settings_field(
+            'ccs_field_footer', // as of WP 4.6 this value is used only internally
+            // use $args' label_for to populate the id inside the callback
+            __('Footer code', 'ccs'),
+            __NAMESPACE__.'\ccs_field_footer_cb',
+            'ccs-header-footer',
+            'ccs_section_footer',
+            [
+            'label_for' => 'ccs_field_footer',
             'class' => 'ccs_row',
             'ccs_custom_data' => 'custom',
             ]
@@ -153,11 +175,18 @@ function sanitize_header_footer($value)
      * Renumber array to avoid a headache later
      */
 
-    if(is_array($value['ccs_field_header_footer']) && count($value['ccs_field_header_footer']) > 0){
+    if(is_array($value['ccs_field_header']) && count($value['ccs_field_header']) > 0){
 
-    $value['ccs_field_header_footer'] = array_combine(range(0, count($value['ccs_field_header_footer']) - 1), array_values($value['ccs_field_header_footer']));
+    $value['ccs_field_header'] = array_combine(range(0, count($value['ccs_field_header']) - 1), array_values($value['ccs_field_header']));
 
     }
+
+
+    if(is_array($value['ccs_field_footer']) && count($value['ccs_field_footer']) > 0){
+
+        $value['ccs_field_footer'] = array_combine(range(0, count($value['ccs_field_footer']) - 1), array_values($value['ccs_field_footer']));
+    
+        }
 
 
     return $value;

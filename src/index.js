@@ -47,7 +47,7 @@ $(document).ready(function () {
     });
 
 
-        $("#add").click(function (e) {
+        $(".add").click(function (e) {
 
             e.preventDefault();
 

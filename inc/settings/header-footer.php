@@ -54,7 +54,7 @@ function header_footer_html()
 }
 
 
-function ccs_field_header_footer_cb($args){
+function ccs_field_header_cb($args){
     $options = get_option('ccs_header_footer');
 
     $classes = is_array($options['header']) ? $options['header'] : [];
@@ -97,7 +97,61 @@ $i++;
 
     </div>
 
-<a name="add" id="add" class="button button-primary" value="Add a rule" data-label="header" data-option='ccs_header_footer' data-type="textarea" href="#ccs-header-rules">Add a Rule</a>
+<a name="add" id="add" class="button button-primary add" value="Add a rule" data-label="header" data-option='ccs_header_footer' data-type="textarea" href="#ccs-header-rules">Add a Rule</a>
+
+
+    <?php
+
+
+
+
+}
+
+
+function ccs_field_footer_cb($args){
+    $options = get_option('ccs_header_footer');
+
+    $classes = is_array($options['footer']) ? $options['footer'] : [];
+
+    //print_r($options['ccs_field_header_footer']);
+
+
+
+helpers\print_nice($options);
+    // output the field
+    ?>
+
+
+
+    <p class="description">
+        <?php esc_html_e('Lorem ipsum here\s a description', 'ccs'); ?>
+    </p>
+    
+
+    <div id="ccs-footer-rules" class="ccs-rule-wrapper" data-option="ccs_header_footer">
+
+    <?php
+
+    $i = 0;
+
+   // class_row($args['label_for'],$i,$classes,$options);
+
+
+
+
+    while($i < count($classes)){
+
+       class_row('ccs_header_footer','footer',$i,$classes,$options,true);
+
+$i++;
+
+    }
+
+    ?>
+
+    </div>
+
+<a name="add" id="add" class="button button-primary add" value="Add a rule" data-label="footer" data-option='ccs_header_footer' data-type="textarea" href="#ccs-footer-rules">Add a Rule</a>
 
 
     <?php
