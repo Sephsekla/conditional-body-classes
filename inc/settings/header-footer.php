@@ -160,3 +160,56 @@ $i++;
 
 
 }
+
+function ccs_field_body_cb($args){
+    $options = get_option('ccs_header_footer');
+
+    $classes = is_array($options['body']) ? $options['body'] : [];
+
+    //print_r($options['ccs_field_header']);
+
+
+
+helpers\print_nice($options);
+    // output the field
+    ?>
+
+
+
+    <p class="description">
+        <?php esc_html_e('Lorem ipsum here\s a description', 'ccs'); ?>
+    </p>
+    
+
+    <div id="ccs-body-rules" class="ccs-rule-wrapper" data-option="ccs_header_footer">
+
+    <?php
+
+    $i = 0;
+
+   // class_row($args['label_for'],$i,$classes,$options);
+
+
+
+
+    while($i < count($classes)){
+
+       class_row('ccs_header_footer','body',$i,$classes,$options,true);
+
+$i++;
+
+    }
+
+    ?>
+
+    </div>
+
+<a name="add" id="add" class="button button-primary add" value="Add a rule" data-label="body" data-option='ccs_header_footer' data-type="textarea" href="#ccs-body-rules">Add a Rule</a>
+
+
+    <?php
+
+
+
+
+}

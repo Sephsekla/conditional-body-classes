@@ -80,6 +80,13 @@ function settings_init()
         'ccs-header-footer'
     );
 
+    add_settings_section(
+        'ccs_section_body',
+        __('Body Open', 'ccs'),
+        __NAMESPACE__.'\ccs_section_classes_cb',
+        'ccs-header-footer'
+    );
+
 
 
     
@@ -124,6 +131,21 @@ function settings_init()
             'ccs_section_footer',
             [
             'label_for' => 'ccs_field_footer',
+            'class' => 'ccs_row',
+            'ccs_custom_data' => 'custom',
+            ]
+        );
+
+          // register a new field in the "ccs_section_developers" section, inside the "ccs" page
+          add_settings_field(
+            'ccs_field_body', // as of WP 4.6 this value is used only internally
+            // use $args' label_for to populate the id inside the callback
+            __('Body Open code', 'ccs'),
+            __NAMESPACE__.'\ccs_field_body_cb',
+            'ccs-header-footer',
+            'ccs_section_body',
+            [
+            'label_for' => 'ccs_field_body',
             'class' => 'ccs_row',
             'ccs_custom_data' => 'custom',
             ]

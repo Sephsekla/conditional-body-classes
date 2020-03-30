@@ -52,6 +52,12 @@ function sanitize_header_footer($value)
     
         }
 
+        if(is_array($value['ccs_field_body']) && count($value['ccs_field_body']) > 0){
+
+            $value['ccs_field_body'] = array_combine(range(0, count($value['ccs_field_body']) - 1), array_values($value['ccs_field_body']));
+        
+            }
+
 
     return $value;
 }

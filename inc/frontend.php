@@ -105,3 +105,7 @@ add_action('wp_head',function(){
 add_action('wp_footer',function(){
     add_inline_code('footer');
 });
+
+add_action('wp_body_open',function(){
+    add_inline_code('body');
+});
