@@ -74,7 +74,7 @@ helpers\print_nice($options);
     </p>
     
 
-    <div id="ccs-class-rules">
+    <div id="ccs-header-rules">
 
     <?php
 
@@ -97,7 +97,7 @@ $i++;
 
     </div>
 
-<button name="add" id="add" class="button button-primary" value="Add a rule" data-label="<?php echo $args['label_for'] ?>" data-option='ccs_header_footer' data-type="textarea">Add a Rule</button>
+<a name="add" id="add" class="button button-primary" value="Add a rule" data-label="<?php echo $args['label_for'] ?>" data-option='ccs_header_footer' data-type="textarea" href="#ccs-header-rules">Add a Rule</a>
 
 
     <?php

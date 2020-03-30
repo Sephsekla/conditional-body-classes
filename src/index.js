@@ -46,7 +46,9 @@ $(document).ready(function () {
     });
 
 
-        $("#add").click(function () {
+        $("#add").click(function (e) {
+
+            e.preventDefault();
 
             let index = 0, set = this;
 
@@ -71,8 +73,10 @@ $(document).ready(function () {
                         textarea: "textarea" === $(set).attr('data-type')
                     },
                     success: function (response) {
+
+                            let container = $(set).attr('href');
                        
-                            $('#ccs-class-rules').append(response);
+                            $(container).append(response);
     
                         
                     }

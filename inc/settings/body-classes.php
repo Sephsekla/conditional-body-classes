@@ -144,7 +144,7 @@ $i++;
 
     </div>
 
-<button name="add" id="add" class="button button-primary" value="Add a rule" data-label="<?php echo $args['label_for'] ?>" data-option='ccs_body_classes'>Add a rule</button>
+<a name="add" id="add" class="button button-primary" value="Add a rule" data-label="<?php echo $args['label_for'] ?>" data-option='ccs_body_classes' href="#ccs-class-rules">Add a rule</a>
 
 
     <?php
