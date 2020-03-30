@@ -101,14 +101,14 @@ function settings_init()
 
         // register a new field in the "ccs_section_developers" section, inside the "ccs" page
         add_settings_field(
-            'ccs_field_header_footer', // as of WP 4.6 this value is used only internally
+            'ccs_field_header', // as of WP 4.6 this value is used only internally
             // use $args' label_for to populate the id inside the callback
             __('Header code', 'ccs'),
             __NAMESPACE__.'\ccs_field_header_cb',
             'ccs-header-footer',
             'ccs_section_header',
             [
-            'label_for' => 'ccs_field_header_footer',
+            'label_for' => 'ccs_field_header',
             'class' => 'ccs_row',
             'ccs_custom_data' => 'custom',
             ]

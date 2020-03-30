@@ -59,7 +59,7 @@ function ccs_field_header_cb($args){
 
     $classes = is_array($options['header']) ? $options['header'] : [];
 
-    //print_r($options['ccs_field_header_footer']);
+    //print_r($options['ccs_field_header']);
 
 
 
@@ -113,7 +113,7 @@ function ccs_field_footer_cb($args){
 
     $classes = is_array($options['footer']) ? $options['footer'] : [];
 
-    //print_r($options['ccs_field_header_footer']);
+    //print_r($options['ccs_field_header']);
 
 
 
