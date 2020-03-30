@@ -23,15 +23,17 @@ function update_condition(){
 
     $index = intval($_POST['index']);
 
+    $option = esc_html($_POST['option']);
+
 
     switch($_POST['value']){
         case 'page':
-            helpers\dropdown_pages($label,$index,null);
+            helpers\dropdown_pages($option,$label,$index,null);
            
             break;
         default:
 
-            helpers\dropdown_post_types($label,$index);
+            helpers\dropdown_post_types($option,$label,$index);
     }
 
     

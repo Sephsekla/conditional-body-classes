@@ -6,7 +6,7 @@ $ = jQuery;
 $(document).ready(function () {
 
 
-    $('#ccs-class-rules').on('change',".ccs-operator",function(){
+    $('.ccs-rule-wrapper').on('change',".ccs-operator",function(){
         
         let set = $(this).parent('.ccs-set');
         let conditions = $(set).find('.ccs-conditions');
@@ -22,6 +22,7 @@ $(document).ready(function () {
                 index: index,
                 value: $(this).val(),
                 label: $(set).attr('data-label'),
+                option: $(set).parent('.ccs-rule-wrapper').attr('data-option'),
             },
             success: function (response) {
                
@@ -37,7 +38,7 @@ $(document).ready(function () {
     })
 
 
-    $('#ccs-class-rules').on('click',".remove",function(){
+    $('.ccs-rule-wrapper').on('click',".remove",function(){
         let set = $(this).parent('.ccs-set');
         $(set).remove();
         console.log("remove");

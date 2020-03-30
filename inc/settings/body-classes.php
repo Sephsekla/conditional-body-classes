@@ -73,7 +73,7 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
         
             switch($options[ $label ][$i]['operator']){
             case 'post_type':
-                helpers\dropdown_post_types($label,$i);
+                helpers\dropdown_post_types($field,$label,$i);
 
                 break;
             default:
@@ -121,7 +121,7 @@ helpers\print_nice($options);
     </p>
     
 
-    <div id="ccs-class-rules">
+    <div id="ccs-class-rules" class="ccs-rule-wrapper" data-option="ccs_body_classes">
 
     <?php
 
