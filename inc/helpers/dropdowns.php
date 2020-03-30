@@ -11,15 +11,6 @@
 
 namespace ccs\helpers;
 
-function get_all_roles()
-{
-    global $wp_roles;
-    
-    $roles = $wp_roles->roles;
-    
-    return $roles;
-}
-
 function dropdown_operators($field,$options,$label,$i)
 {
 
@@ -88,10 +79,4 @@ function dropdown_pages($field,$label,$i,$selected){
         'class' => 'ccs-pages'
         ]
     );
-}
-
-function print_nice($array){
-    echo '<pre>';
-    print_r($array);
-    echo '</pre>';
 }
