@@ -40,11 +40,19 @@ $(document).ready(function () {
 
     $('.ccs-rule-wrapper').on('click',".remove",function(){
         let set = $(this).closest('.ccs-set');
-        
-        if(confirm("Are you sure you want to remove this rule?")){
+
+        if($(set).find('.edit-rule').val().length > 0){
+            if(confirm("Are you sure you want to remove this rule?")){
+                $(set).remove();
+    
+            }
+    
+        }
+        else{
             $(set).remove();
 
         }
+        
 
 
     });

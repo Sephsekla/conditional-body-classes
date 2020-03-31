@@ -29,7 +29,7 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
         ?>
 
 <textarea name="<?php echo $field ?>[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
-            required class="large-text code"><?php echo $classes[$i]['classes']?></textarea>
+            required class="large-text code edit-rule"><?php echo $classes[$i]['classes']?></textarea>
 
     <?php
 
@@ -39,7 +39,7 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
         ?>
 
 <input type="text" name="<?php echo $field ?>[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
-            value="<?php echo $classes[$i]['classes']?>" required class="large-text">
+            value="<?php echo $classes[$i]['classes']?>" required class="large-text edit-rule">
 
     <?php
 
