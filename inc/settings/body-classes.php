@@ -30,9 +30,7 @@ function ccs_field_classes_cb($args)
     $classes = is_array($options['ccs_field_classes']) ? $options['ccs_field_classes'] : [];
 
     ?>
-    
-    <div class="postbox">
-    <div class="inside">
+
     <div id="ccs-class-rules" class="ccs-rule-wrapper" data-option="ccs_body_classes">
 
     <?php
@@ -57,8 +55,7 @@ $i++;
     </div>
 
 <a name="add" id="add" class="button button-primary add" value="Add a rule" data-label="<?php echo $args['label_for'] ?>" data-option='ccs_body_classes' href="#ccs-class-rules">Add a rule</a>
-</div>
-</div>
+
 
 
     <?php

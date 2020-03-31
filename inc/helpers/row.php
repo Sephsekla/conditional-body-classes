@@ -20,7 +20,8 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
 
     ?>
 
-    <fieldset id="<?php echo esc_attr($label).'-'.$i; ?>" class="ccs-set" data-index="<?php echo $i ?>" data-label="<?php echo $label ?>">
+    <fieldset id="<?php echo esc_attr($label).'-'.$i; ?>" class="ccs-set postbox" data-index="<?php echo $i ?>" data-label="<?php echo $label ?>">
+    <div class="inside">
     <div class="fields">
 
     <?php if($textarea){
@@ -79,9 +80,9 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
         </div>
     
 
-        <input type="button" name="remove" class="button button-primary remove" value="Remove">
+        <a name="remove" class="notice-dismiss remove" value="Remove"><span class="screen-reader-text">Remove</span></a>
 
-            <br>
+           </div>
             </fieldset>
     
                 <?php

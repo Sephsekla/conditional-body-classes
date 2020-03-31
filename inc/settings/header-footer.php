@@ -61,8 +61,7 @@ function ccs_field_header_cb($args){
 
     ?>
     
-    <div class="postbox">
-    <div class="inside">
+
     <div id="ccs-header-rules" class="ccs-rule-wrapper" data-option="ccs_header_footer">
 
     <?php
@@ -87,8 +86,7 @@ $i++;
     </div>
 
 <a name="add" id="add" class="button button-primary add" value="Add a rule" data-label="header" data-option='ccs_header_footer' data-type="textarea" href="#ccs-header-rules">Add a Rule</a>
-</div>
-</div>
+
 
     <?php
 
@@ -105,8 +103,7 @@ function ccs_field_footer_cb($args){
 
     ?>
     
-    <div class="postbox">
-    <div class="inside">
+  
     <div id="ccs-footer-rules" class="ccs-rule-wrapper" data-option="ccs_header_footer">
 
     <?php
@@ -131,8 +128,7 @@ $i++;
     </div>
 
 <a name="add" id="add" class="button button-primary add" value="Add a rule" data-label="footer" data-option='ccs_header_footer' data-type="textarea" href="#ccs-footer-rules">Add a Rule</a>
-</div>
-</div>
+
 
     <?php
 
@@ -147,8 +143,7 @@ function ccs_field_body_cb($args){
     $classes = is_array($options['body']) ? $options['body'] : [];
 
     ?>
-     <div class="postbox">
-    <div class="inside">
+ 
     <div id="ccs-body-rules" class="ccs-rule-wrapper" data-option="ccs_header_footer">
 
     <?php
@@ -173,8 +168,7 @@ $i++;
     </div>
 
 <a name="add" id="add" class="button button-primary add" value="Add a rule" data-label="body" data-option='ccs_header_footer' data-type="textarea" href="#ccs-body-rules">Add a Rule</a>
-</div>
-</div>
+
 
 
     <?php
