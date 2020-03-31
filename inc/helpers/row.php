@@ -80,9 +80,10 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
         </div>
     
 
-        <a name="remove" class="notice-dismiss remove" value="Remove"><span class="screen-reader-text">Remove</span></a>
-
+     
            </div>
+           <a name="remove" class="notice-dismiss remove" value="Remove"><span class="screen-reader-text">Remove</span></a>
+
             </fieldset>
     
                 <?php
