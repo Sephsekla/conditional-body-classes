@@ -60,12 +60,6 @@ function ccs_field_header_cb($args){
     $classes = is_array($options['header']) ? $options['header'] : [];
 
     ?>
-
-
-
-    <p class="description">
-        <?php esc_html_e('Lorem ipsum here\s a description', 'ccs'); ?>
-    </p>
     
 
     <div id="ccs-header-rules" class="ccs-rule-wrapper" data-option="ccs_header_footer">
@@ -108,12 +102,6 @@ function ccs_field_footer_cb($args){
     $classes = is_array($options['footer']) ? $options['footer'] : [];
 
     ?>
-
-
-
-    <p class="description">
-        <?php esc_html_e('Lorem ipsum here\s a description', 'ccs'); ?>
-    </p>
     
 
     <div id="ccs-footer-rules" class="ccs-rule-wrapper" data-option="ccs_header_footer">
@@ -155,13 +143,6 @@ function ccs_field_body_cb($args){
     $classes = is_array($options['body']) ? $options['body'] : [];
 
     ?>
-
-
-
-    <p class="description">
-        <?php esc_html_e('Lorem ipsum here\s a description', 'ccs'); ?>
-    </p>
-    
 
     <div id="ccs-body-rules" class="ccs-rule-wrapper" data-option="ccs_header_footer">
 

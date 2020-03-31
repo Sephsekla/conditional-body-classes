@@ -28,12 +28,6 @@ function ccs_field_classes_cb($args)
     $classes = is_array($options['ccs_field_classes']) ? $options['ccs_field_classes'] : [];
 
     ?>
-
-
-
-    <p class="description">
-        <?php esc_html_e('Lorem ipsum here\s a description', 'ccs'); ?>
-    </p>
     
 
     <div id="ccs-class-rules" class="ccs-rule-wrapper" data-option="ccs_body_classes">
