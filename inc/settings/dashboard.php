@@ -38,10 +38,10 @@ function dashboard_html(){
 
 					<div class="postbox ccs-dashboard">
 
-						<h2><span><?php esc_attr_e( 'Conditional Code Suite', 'ccs' ); ?></span></h2>
+						<h2>Version <?php echo ccs_PLUGIN_VERSION ?></span></h2>
 
 						<div class="inside">
-                            <h3>Version <?php echo ccs_PLUGIN_VERSION ?></h3>
+                            
 							<p><?php esc_attr_e(
 									'Conditional Code Suite allows you to add styles and scripts to specific pages or post types without having to touch your theme\'s files.',
 									'ccs'

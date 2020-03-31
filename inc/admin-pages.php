@@ -32,7 +32,7 @@ function options_page()
      // add top level menu page
     add_submenu_page(
         'ccs-dashboard',
-        'CCS Dashboard',
+        'Conditional Code Suite',
         'Dashboard',
         'ccs_edit',
         'ccs-dashboard',
