@@ -22,21 +22,21 @@ function options_page()
         'CCS',
         'ccs_edit',
         'ccs-dashboard',
-        'ccs\settings\body_class_html'
+        'ccs\settings\dashboard_html'
     );
 
 
 
 
-        // add top level menu page
-        add_submenu_page(
-            'ccs-dashboard',
-            'CCS Dashboard',
-            'Dashboard',
-            'ccs_edit',
-            'ccs-dashboard',
-            'ccs\settings\body_class_html'
-        );
+     // add top level menu page
+    add_submenu_page(
+        'ccs-dashboard',
+        'CCS Dashboard',
+        'Dashboard',
+        'ccs_edit',
+        'ccs-dashboard',
+        'ccs\settings\dashboard_html'
+    );
 
 
     // add top level menu page
