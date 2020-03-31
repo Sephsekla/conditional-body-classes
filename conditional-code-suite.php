@@ -3,7 +3,7 @@
 	Plugin Name: Conditional Code Suite
 	Plugin URI: https://joebr.io
 	Description: Add body classes based on conditional factors on your site
-	Version: 0.9.0
+	Version: 0.9.5
 	Author: JBR Digital
 	Author URI: https://www.never5.com
 	Requires at least: 5.3.0
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Define DLM FILE
 define( 'ccs_PLUGIN_PATH', trailingslashit(plugin_dir_path(__FILE__) ));
 define( 'ccs_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__) ));
-define( 'ccs_PLUGIN_VERSION', '0.9.0');
+define( 'ccs_PLUGIN_VERSION', '0.9.5');
 
 
 
