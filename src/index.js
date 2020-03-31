@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     $('.ccs-rule-wrapper').on('change',".ccs-operator",function(){
         
-        let set = $(this).parent('.ccs-set');
+        let set = $(this).closest('.ccs-set');
         let conditions = $(set).find('.ccs-conditions');
         let index = $(set).attr('data-index');
 
@@ -22,7 +22,7 @@ $(document).ready(function () {
                 index: index,
                 value: $(this).val(),
                 label: $(set).attr('data-label'),
-                option: $(set).parent('.ccs-rule-wrapper').attr('data-option'),
+                option: $(set).closest('.ccs-rule-wrapper').attr('data-option'),
             },
             success: function (response) {
                
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
 
     $('.ccs-rule-wrapper').on('click',".remove",function(){
-        let set = $(this).parent('.ccs-set');
+        let set = $(this).closest('.ccs-set');
         $(set).remove();
         console.log("remove");
 
