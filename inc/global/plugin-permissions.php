@@ -41,3 +41,13 @@ function update_role_permissions($old_value, $value, $option)
 $option = 'ccs_permissions';
 
 add_action("update_option_{$option}", __NAMESPACE__.'\update_role_permissions', 10, 3);
+
+
+
+
+register_activation_hook( __FILE__, __NAMESPACE__.'\initial_roles' );
+
+function initial_roles(){
+    $role = get_role( 'administrator' );
+    $role->add_cap( 'ccs_edit' );
+}

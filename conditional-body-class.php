@@ -43,7 +43,7 @@ define( 'ccs_PLUGIN_VERSION', '0.9.0');
  * Check we have a PHP version high enough to support namespaces
  */
 if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
-	require_once ccs_PLUGIN_PATH.'init.php';
+	require_once ccs_PLUGIN_PATH.'inc/init.php';
 
 }else {
 	require_once ccs_PLUGIN_PATH.'inc/php-version.php';
