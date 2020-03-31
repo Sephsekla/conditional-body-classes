@@ -7,7 +7,7 @@
 	Author: JBR Digital
 	Author URI: https://joebr.io
 	Requires at least: 5.3.0
-	Tested up to: 5.3.1
+	Tested up to: 5.3.2
 	Text Domain: ccs
 
 	License: GPL v3
