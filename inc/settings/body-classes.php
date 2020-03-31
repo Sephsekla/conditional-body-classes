@@ -27,10 +27,6 @@ function ccs_field_classes_cb($args)
 
     $classes = is_array($options['ccs_field_classes']) ? $options['ccs_field_classes'] : [];
 
-
-
-helpers\print_nice($options);
-    // output the field
     ?>
 
 

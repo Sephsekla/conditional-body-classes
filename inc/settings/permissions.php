@@ -87,8 +87,6 @@ function permissions_html()
         // add settings saved message with the class of "updated"
         add_settings_error('ccs_messages', 'ccs_message', __('Settings Saved', 'ccs'), 'updated');
     }
-
-    helpers\print_nice(get_option('ccs_permissions'));
     
     // show error/update messages
     settings_errors('ccs_messages');

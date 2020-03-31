@@ -59,12 +59,6 @@ function ccs_field_header_cb($args){
 
     $classes = is_array($options['header']) ? $options['header'] : [];
 
-    //print_r($options['ccs_field_header']);
-
-
-
-helpers\print_nice($options);
-    // output the field
     ?>
 
 
@@ -113,12 +107,6 @@ function ccs_field_footer_cb($args){
 
     $classes = is_array($options['footer']) ? $options['footer'] : [];
 
-    //print_r($options['ccs_field_header']);
-
-
-
-helpers\print_nice($options);
-    // output the field
     ?>
 
 
@@ -166,12 +154,6 @@ function ccs_field_body_cb($args){
 
     $classes = is_array($options['body']) ? $options['body'] : [];
 
-    //print_r($options['ccs_field_header']);
-
-
-
-helpers\print_nice($options);
-    // output the field
     ?>
 
 

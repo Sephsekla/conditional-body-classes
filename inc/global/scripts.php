@@ -34,8 +34,3 @@ function enqueue_admin_script( $hook ) {
     wp_enqueue_script('ccs-script');
 }
 add_action( 'admin_enqueue_scripts', __NAMESPACE__.'\enqueue_admin_script' );
-
-add_action('admin_footer',function(){
-    $screen = get_current_screen(); 
-print_r($screen);
-});
