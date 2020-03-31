@@ -1,5 +1,4 @@
-console.log(ccsVars);
-
+import './sass/style.scss';
 
 $ = jQuery;
 
