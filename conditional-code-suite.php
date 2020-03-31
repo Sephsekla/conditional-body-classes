@@ -5,7 +5,7 @@
 	Description: Add body classes based on conditional factors on your site
 	Version: 0.9.5
 	Author: JBR Digital
-	Author URI: https://www.never5.com
+	Author URI: https://joebr.io
 	Requires at least: 5.3.0
 	Tested up to: 5.3.1
 	Text Domain: ccs
