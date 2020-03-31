@@ -17,9 +17,13 @@ use ccs\helpers as helpers;
 
 function ccs_section_classes_cb($args)
 {
-    echo 'SECTION CALLBACk';
+    ?>
 
-    //helpers\print_nice($args);
+    <p>You can use this section to add a new class to the body of a page or post.</p>
+    <p>This is useful for adding specific styles to a piece of content in the <a href="https://wordpress.org/support/article/appearance-customize-screen/" target="_blank">Customizer</a> without having to make changes to your theme's code.</p>
+
+
+<?php
 }
 
 
@@ -106,4 +110,37 @@ function body_class_html()
 
     
     <?php
+}
+
+function ccs_section_header_cb($args)
+{
+    ?>
+
+    <p>You can use this section to add code to the head of your page.</p>
+    <p>This is useful for custom CSS and JavaScript, for example analytics tracking code. Code here is output to the <code>wp_head</code> tag.</p>
+
+
+<?php
+}
+
+function ccs_section_footer_cb($args)
+{
+    ?>
+
+    <p>You can use this section to add code to the end of your page.</p>
+    <p>This is useful for custom JavaScript. Code here is output to the <code>wp_footer</code> tag.</p>
+
+
+<?php
+}
+
+function ccs_section_body_cb($args)
+{
+    ?>
+
+    <p>You can use this section to add code to the very start of the body of your page.</p>
+    <p>This most commonly used for the <code>noscript</code> part of analytics tracking code. Code here is output to the <code>wp_body_open</code> tag.</p>
+
+
+<?php
 }

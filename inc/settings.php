@@ -62,28 +62,28 @@ function settings_init()
     add_settings_section(
         'ccs_section_permissions',
         __('Permissions', 'ccs'),
-        __NAMESPACE__.'\ccs_section_classes_cb',
+        __NAMESPACE__.'\ccs_section_permissions_cb',
         'ccs-permissions'
     );
 
     add_settings_section(
         'ccs_section_header',
         __('Header', 'ccs'),
-        __NAMESPACE__.'\ccs_section_classes_cb',
+        __NAMESPACE__.'\ccs_section_header_cb',
         'ccs-header-footer'
     );
 
     add_settings_section(
         'ccs_section_footer',
         __('Footer', 'ccs'),
-        __NAMESPACE__.'\ccs_section_classes_cb',
+        __NAMESPACE__.'\ccs_section_footer_cb',
         'ccs-header-footer'
     );
 
     add_settings_section(
         'ccs_section_body',
         __('Body Open', 'ccs'),
-        __NAMESPACE__.'\ccs_section_classes_cb',
+        __NAMESPACE__.'\ccs_section_body_cb',
         'ccs-header-footer'
     );
 

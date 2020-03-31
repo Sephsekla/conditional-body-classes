@@ -113,3 +113,15 @@ function permissions_html()
     
     <?php
 }
+
+
+function ccs_section_permissions_cb($args)
+{
+    ?>
+
+    <p>You can use this section to determine who can access Conditional Code Suite.</p>
+    <p>Note: Only those with administrator permissions can see this page.</p>
+
+
+<?php
+}
