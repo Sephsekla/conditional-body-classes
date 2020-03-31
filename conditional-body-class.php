@@ -35,6 +35,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Define DLM FILE
 define( 'ccs_PLUGIN_PATH', trailingslashit(plugin_dir_path(__FILE__) ));
 define( 'ccs_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__) ));
+define( 'ccs_PLUGIN_VERSION', '0.9.0');
+
 
 
 /**
