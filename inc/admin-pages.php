@@ -22,7 +22,8 @@ function options_page()
         'CCS',
         'ccs_edit',
         'ccs-dashboard',
-        'ccs\settings\dashboard_html'
+        'ccs\settings\dashboard_html',
+        'data:image/svg+xml;base64,' . base64_encode(file_get_contents(ccs_PLUGIN_PATH.'dist/icon.svg'))
     );
 
 
