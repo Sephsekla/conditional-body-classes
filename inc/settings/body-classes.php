@@ -15,9 +15,11 @@ namespace ccs\settings;
 use ccs\options as options;
 use ccs\helpers as helpers;
 
-function ccs_section_classes_cb()
+function ccs_section_classes_cb($args)
 {
     echo 'SECTION CALLBACk';
+
+    //helpers\print_nice($args);
 }
 
 
@@ -29,7 +31,8 @@ function ccs_field_classes_cb($args)
 
     ?>
     
-
+    <div class="postbox">
+    <div class="inside">
     <div id="ccs-class-rules" class="ccs-rule-wrapper" data-option="ccs_body_classes">
 
     <?php
@@ -54,6 +57,8 @@ $i++;
     </div>
 
 <a name="add" id="add" class="button button-primary add" value="Add a rule" data-label="<?php echo $args['label_for'] ?>" data-option='ccs_body_classes' href="#ccs-class-rules">Add a rule</a>
+</div>
+</div>
 
 
     <?php
@@ -86,6 +91,7 @@ function body_class_html()
     ?>
     <div class="wrap">
     <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
+   
     <form action="options.php" method="post">
     <?php
     // output security fields for the registered setting "wporg"
@@ -98,6 +104,7 @@ function body_class_html()
     ?>
     </form>
     </div>
+  
 
 
     

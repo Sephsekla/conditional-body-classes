@@ -26,7 +26,8 @@ function ccs_field_permissions_cb($args)
     // output the field
     ?>
 
-
+<div class="postbox">
+<div class="inside">
 <fieldset id="<?php echo esc_attr($args['label_for']); ?>"
     data-custom="<?php echo esc_attr($args['ccs_custom_data']); ?>">
     <p class="description">
@@ -68,6 +69,8 @@ function ccs_field_permissions_cb($args)
     }
     ?>
 </fieldset>
+</div>
+</div>
     <?php
 }
     

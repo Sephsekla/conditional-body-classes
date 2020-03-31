@@ -21,13 +21,14 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
     ?>
 
     <fieldset id="<?php echo esc_attr($label).'-'.$i; ?>" class="ccs-set" data-index="<?php echo $i ?>" data-label="<?php echo $label ?>">
+    <div class="fields">
 
     <?php if($textarea){
 
         ?>
 
 <textarea name="<?php echo $field ?>[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
-            required><?php echo $classes[$i]['classes']?></textarea>
+            required class="large-text code"><?php echo $classes[$i]['classes']?></textarea>
 
     <?php
 
@@ -37,7 +38,7 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
         ?>
 
 <input type="text" name="<?php echo $field ?>[<?php echo esc_attr($label); ?>][<?php echo $i ?>][classes]"
-            value="<?php echo $classes[$i]['classes']?>" required>
+            value="<?php echo $classes[$i]['classes']?>" required class="regular-text">
 
     <?php
 
@@ -74,6 +75,7 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
             ?>
 
         
+        </div>
         </div>
     
 

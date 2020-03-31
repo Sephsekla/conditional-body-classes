@@ -54,7 +54,7 @@ function settings_init()
     // register a new section in the "ccs" page
     add_settings_section(
         'ccs_section_classes',
-        __('Body Classes.', 'ccs'),
+        __('Body Classes', 'ccs'),
         __NAMESPACE__.'\ccs_section_classes_cb',
         'ccs-body-class'
     );
