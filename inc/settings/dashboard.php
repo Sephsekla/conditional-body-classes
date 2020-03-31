@@ -36,19 +36,42 @@ function dashboard_html(){
 
 				<div class="meta-box-sortables ui-sortable">
 
-					<div class="postbox">
+					<div class="postbox ccs-dashboard">
 
 						<h2><span><?php esc_attr_e( 'Conditional Code Suite', 'ccs' ); ?></span></h2>
 
 						<div class="inside">
-                            <p>Version <?php echo ccs_PLUGIN_VERSION ?></p>
+                            <h3>Version <?php echo ccs_PLUGIN_VERSION ?></h3>
 							<p><?php esc_attr_e(
 									'Conditional Code Suite allows you to add styles and scripts to specific pages or post types without having to touch your theme\'s files.',
 									'ccs'
 								); ?></p>
 
                             <hr>
-                            <p><strong>Changelog</strong></p>
+							
+							
+                            
+						</div>
+								<h2>Changelog</h2>
+						<div class="inside">
+                           
+							<h3>1.0.0</h3>
+							<ul>
+								<li>Plugin launch!</li>
+							</ul>
+							
+							
+                            <hr>
+						</div>
+						<h2>Coming soon</h2>
+						<div class="inside">
+                           
+							<ul>
+								<li>Conditional code by user role</li>
+								<li>Conditional code in the admin area of the site</li>
+							</ul>
+							
+							
                             
 						</div>
 
