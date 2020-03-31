@@ -46,12 +46,14 @@ function class_row($field,$label,$i,$classes,$options,$textarea = false){
     }
 
     ?>
+
+    If
     
         
             
             <?php helpers\dropdown_operators($field,$options,$label,$i) ?>
     
-    
+    =
     
         <div class="ccs-conditions" style="display: inline-block">
     
