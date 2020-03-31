@@ -1,9 +1,8 @@
 <?php
 /*
 	Plugin Name: Conditional Code Suite
-	Plugin URI: https://joebr.io
 	Description: Add body classes based on conditional factors on your site
-	Version: 1.0.0
+	Version: 1.1.0
 	Author: JBR Digital
 	Author URI: https://joebr.io
 	Requires at least: 5.3.0
@@ -35,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Define DLM FILE
 define( 'ccs_PLUGIN_PATH', trailingslashit(plugin_dir_path(__FILE__) ));
 define( 'ccs_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__) ));
-define( 'ccs_PLUGIN_VERSION', '1.0.0');
+define( 'ccs_PLUGIN_VERSION', '1.1.0');
 
 
 

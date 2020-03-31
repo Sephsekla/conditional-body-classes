@@ -62,7 +62,3 @@ This can be controlled by conditions:
 == Changelog ==
 1.0.0
 - Plugin launch!
-
-== Changelog ==
-1.0.0
-- Plugin launch!
